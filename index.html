@@ -8,104 +8,50 @@
   <title>Vietflex GIS Tools · Công cụ GIS tiếng Việt</title>
   <style>
     :root{
-      --bg:#ffffff;
-      --surface:#f7f9fb;
-      --surface-2:#f1f5f8;
-      --ink:#10231f;
-      --muted:#667a74;
-      --line:#dfe8e4;
-      --line-strong:#cddbd5;
-      --ocean:#0b79d0;
-      --ocean-soft:#eaf6ff;
-      --land:#1e9a69;
-      --land-soft:#ecf8f3;
-      --sun:#f4b942;
-      --shadow:0 18px 60px rgba(28,58,49,.08);
-      --radius:20px;
-      --max:1240px;
+      --bg:#fff;--surface:#f7f9fb;--ink:#10231f;--muted:#667a74;
+      --line:#dfe8e4;--line-strong:#cddbd5;--ocean:#0b79d0;--land:#1e9a69;
+      --shadow:0 18px 60px rgba(28,58,49,.08);--radius:20px;--max:1240px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    button,input,select{font:inherit}
-    button{color:inherit}
+    a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{color:inherit}
     .wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
-    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(223,232,228,.9)}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(223,232,228,.9)}
     .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}
     .brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.025em}
     .brandmark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line-strong);background:linear-gradient(145deg,#fff,#f3faf7);position:relative;overflow:hidden}
     .brandmark:before,.brandmark:after{content:"";position:absolute;border:1px solid rgba(11,121,208,.35);border-radius:50%}
-    .brandmark:before{width:27px;height:35px}.brandmark:after{width:35px;height:13px}
-    .brandmark i{width:26px;height:1px;background:rgba(11,121,208,.45);position:absolute}
+    .brandmark:before{width:27px;height:35px}.brandmark:after{width:35px;height:13px}.brandmark i{width:26px;height:1px;background:rgba(11,121,208,.45);position:absolute}
     .brand small{display:block;margin-top:1px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
-    .navlinks{display:flex;align-items:center;gap:4px}
-    .navlinks a{padding:9px 12px;border-radius:999px;color:#435b54;font-size:14px;font-weight:650}
-    .navlinks a:hover{background:var(--surface)}
-    .github-pill{border:1px solid var(--line)!important;background:#fff}
+    .navlinks{display:flex;align-items:center;gap:4px}.navlinks a{padding:9px 12px;border-radius:999px;color:#435b54;font-size:14px;font-weight:650}.navlinks a:hover{background:var(--surface)}
 
-    .hero{position:relative;overflow:hidden;padding:78px 0 54px;border-bottom:1px solid #edf2ef}
-    .hero:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(28,92,74,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(28,92,74,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 88%)}
-    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:48px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #d9ebe4;border-radius:999px;background:rgba(255,255,255,.86);color:#2d6553;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .hero{position:relative;overflow:hidden;padding:72px 0 52px;border-bottom:1px solid #edf2ef}
+    .hero:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(28,92,74,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(28,92,74,.03) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 88%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(370px,.85fr);gap:46px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #d9ebe4;border-radius:999px;background:rgba(255,255,255,.9);color:#2d6553;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
     .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--ocean),var(--land));box-shadow:0 0 0 4px #eef8f5}
-    .hero h1{max-width:760px;margin:20px 0 18px;font-size:clamp(44px,6.4vw,78px);line-height:.98;letter-spacing:-.06em;font-weight:850}
-    .hero h1 span{color:var(--ocean)}
+    .hero h1{max-width:760px;margin:20px 0 18px;font-size:clamp(44px,6.4vw,78px);line-height:.98;letter-spacing:-.06em;font-weight:850}.hero h1 span{color:var(--ocean)}
     .lead{max-width:730px;margin:0;color:#5d726c;font-size:clamp(17px,2vw,20px)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-    .btn{min-height:46px;padding:0 17px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:14px;font-weight:800;transition:.18s ease}
-    .btn:hover{transform:translateY(-1px);border-color:#afc9c0}
-    .btn.primary{background:#123f34;border-color:#123f34;color:#fff;box-shadow:0 10px 24px rgba(18,63,52,.15)}
-    .trustline{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:26px;color:#71847e;font-size:12px;font-weight:650}
-    .trustline span{display:flex;align-items:center;gap:7px}.trustline b{width:5px;height:5px;border-radius:50%;background:#97aaa4}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.btn{min-height:46px;padding:0 18px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn.primary{background:#123f34;border-color:#123f34;color:#fff;box-shadow:0 10px 24px rgba(18,63,52,.15)}
+    .trustline{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:26px;color:#71847e;font-size:12px;font-weight:650}.trustline span{display:flex;align-items:center;gap:7px}.trustline b{width:5px;height:5px;border-radius:50%;background:#97aaa4}
 
-    .earth-stage{position:relative;min-height:470px;display:grid;place-items:center}
-    .earth-stage:before{content:"";position:absolute;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle at 46% 42%,rgba(11,121,208,.08),rgba(30,154,105,.03) 54%,transparent 72%)}
-    .earth{width:min(430px,100%);aspect-ratio:1;filter:drop-shadow(0 30px 45px rgba(30,86,69,.1))}
-    .orbit{position:absolute;width:470px;height:145px;border:1px solid rgba(11,121,208,.16);border-radius:50%;transform:rotate(-16deg)}
-    .orbit-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--sun);right:55px;top:136px;box-shadow:0 0 0 7px rgba(244,185,66,.12)}
-    .earth-label{position:absolute;right:2px;bottom:34px;width:184px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.92);box-shadow:var(--shadow);font-size:12px;color:var(--muted)}
-    .earth-label b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+    .earth-stage{position:relative;min-height:470px;display:grid;place-items:center;isolation:isolate}
+    .earth-stage:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(11,121,208,.11),rgba(30,154,105,.045) 47%,transparent 70%);filter:blur(2px);z-index:-1}
+    .earth-photo-wrap{position:relative;width:min(425px,92vw);aspect-ratio:1;border-radius:50%;padding:7px;background:#fff;border:1px solid #dce8e4;box-shadow:0 28px 65px rgba(24,67,55,.13)}
+    .earth-photo{width:100%;height:100%;display:block;border-radius:50%;object-fit:cover;object-position:center;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+    .earth-photo-wrap:hover .earth-photo{transform:scale(1.018)}
+    .earth-photo-wrap:after{content:"";position:absolute;inset:7px;border-radius:50%;box-shadow:inset -18px -18px 34px rgba(0,0,0,.08),inset 10px 10px 24px rgba(255,255,255,.08);pointer-events:none}
+    .earth-marker{position:absolute;left:16px;bottom:20px;width:190px;padding:11px 13px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:var(--shadow);font-size:11px;color:var(--muted)}.earth-marker b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
 
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:#fff}
-    .stat{padding:22px 24px;border-right:1px solid var(--line)}
-    .stat:last-child{border-right:0}.stat b{display:block;font-size:27px;letter-spacing:-.04em;color:#173f35}.stat span{font-size:12px;color:var(--muted)}
-
-    .section{padding:70px 0}
-    .section.alt{background:linear-gradient(180deg,#fbfcfc,#fff)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
-    .section-head h2{margin:0;font-size:clamp(28px,3vw,40px);letter-spacing:-.045em;line-height:1.05}
-    .section-head p{margin:8px 0 0;color:var(--muted);max-width:680px}
-    .micro{font-size:12px;color:#81918c;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
-
-    .controls{position:sticky;top:68px;z-index:30;padding:12px 0 8px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px)}
-    .searchrow{display:grid;grid-template-columns:1fr 230px;gap:10px}
-    .searchbox{display:flex;align-items:center;gap:11px;min-height:52px;padding:0 16px;border:1px solid var(--line-strong);border-radius:15px;background:#fff;box-shadow:0 8px 26px rgba(33,61,53,.04)}
-    .searchbox svg{width:18px;height:18px;stroke:#6f837d;flex:none}
-    .searchbox input{width:100%;border:0;outline:0;background:transparent;color:var(--ink)}
-    .searchbox input::placeholder{color:#99aaa5}
-    .select{border:1px solid var(--line-strong);border-radius:15px;background:#fff;color:#314942;padding:0 14px;outline:0}
-    .chips{display:flex;gap:8px;overflow:auto;padding:11px 1px 3px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
-    .chip{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#557069;border-radius:999px;padding:8px 12px;cursor:pointer;font-size:13px;font-weight:700;transition:.18s ease}
-    .chip:hover{border-color:#afc9c0;background:#f8fbfa}.chip.active{background:#173f35;border-color:#173f35;color:#fff}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:#fff}.stat{padding:22px 24px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}.stat b{display:block;font-size:27px;letter-spacing:-.04em;color:#173f35}.stat span{font-size:12px;color:var(--muted)}
+    .section{padding:70px 0}.section.alt{background:linear-gradient(180deg,#fbfcfc,#fff)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}.section-head h2{margin:0;font-size:clamp(28px,3vw,40px);letter-spacing:-.045em;line-height:1.05}.section-head p{margin:8px 0 0;color:var(--muted);max-width:680px}.micro{font-size:12px;color:#81918c;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    .controls{position:sticky;top:68px;z-index:30;padding:12px 0 8px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px)}.searchrow{display:grid;grid-template-columns:1fr 230px;gap:10px}.searchbox{display:flex;align-items:center;gap:11px;min-height:52px;padding:0 16px;border:1px solid var(--line-strong);border-radius:15px;background:#fff;box-shadow:0 8px 26px rgba(33,61,53,.04)}.searchbox svg{width:18px;height:18px;stroke:#6f837d;flex:none}.searchbox input{width:100%;border:0;outline:0;background:transparent;color:var(--ink)}.searchbox input::placeholder{color:#99aaa5}.select{border:1px solid var(--line-strong);border-radius:15px;background:#fff;color:#314942;padding:0 14px;outline:0}.chips{display:flex;gap:8px;overflow:auto;padding:11px 1px 3px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#557069;border-radius:999px;padding:8px 12px;cursor:pointer;font-size:13px;font-weight:700;transition:.18s ease}.chip:hover{border-color:#afc9c0;background:#f8fbfa}.chip.active{background:#173f35;border-color:#173f35;color:#fff}
     .resultbar{display:flex;justify-content:space-between;gap:14px;align-items:center;color:#768a84;font-size:12px;padding:12px 2px 15px}.resultbar strong{color:var(--ink)}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{position:relative;display:flex;flex-direction:column;min-height:270px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:.2s ease}
-    .card:hover{transform:translateY(-3px);border-color:#bdd2ca;box-shadow:var(--shadow)}
-    .card-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
-    .tool-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--surface);border:1px solid #e8efec;font-size:21px}
-    .badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.badge{min-height:25px;padding:4px 8px;display:inline-flex;align-items:center;border-radius:999px;font-size:10px;font-weight:800;border:1px solid var(--line);color:#6a7d77;background:#fff}.badge.open{color:#237654;border-color:#cfe9dc;background:#f1faf6}.badge.commercial{color:#8c6720;border-color:#eee0bd;background:#fffaf0}
-    .card h3{margin:18px 0 4px;font-size:20px;letter-spacing:-.025em}.category{color:var(--ocean);font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.08em}.desc{color:#647871;margin:10px 0 17px;font-size:14px;flex:1}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.tag{font-size:10px;color:#748780;padding:5px 7px;border-radius:7px;background:#f4f7f6;border:1px solid #edf2f0}.card-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid #edf2f0;padding-top:14px}.card-foot a{font-weight:800;font-size:12px;color:#1b6ca8}.card-foot a:hover{text-decoration:underline}.use{font-size:10px;color:#8c9a96;text-align:right}
-    .empty{grid-column:1/-1;text-align:center;padding:55px 20px;border:1px dashed var(--line-strong);border-radius:18px;color:var(--muted);background:#fbfcfc}
-
-    .guide{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.guidebox{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff}.guidebox h3{margin:0 0 8px;font-size:21px;letter-spacing:-.025em}.guidebox p{margin:0;color:var(--muted)}.stack{display:grid;gap:9px;margin-top:18px}.stack div{padding:12px 13px;border-left:3px solid var(--land);background:#f7fbf9;border-radius:0 10px 10px 0}.stack b{font-size:13px}.stack span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-    .earth-note{position:relative;overflow:hidden;background:linear-gradient(145deg,#123f34,#0f5f57);color:#fff}.earth-note:after{content:"";position:absolute;width:270px;height:270px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-80px;bottom:-100px;box-shadow:0 0 0 42px rgba(255,255,255,.025),0 0 0 84px rgba(255,255,255,.018)}.earth-note p{color:#d5e9e2}.earth-note .stack div{position:relative;z-index:1;background:rgba(255,255,255,.07);border-left-color:#7fe1bd}.earth-note .stack span{color:#bcd9d0}
-
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{position:relative;display:flex;flex-direction:column;min-height:270px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:.2s ease}.card:hover{transform:translateY(-3px);border-color:#bdd2ca;box-shadow:var(--shadow)}.card-top{display:flex;justify-content:space-between;align-items:start;gap:12px}.tool-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--surface);border:1px solid #e8efec;font-size:21px}.badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.badge{min-height:25px;padding:4px 8px;display:inline-flex;align-items:center;border-radius:999px;font-size:10px;font-weight:800;border:1px solid var(--line);color:#6a7d77;background:#fff}.badge.open{color:#237654;border-color:#cfe9dc;background:#f1faf6}.badge.commercial{color:#8c6720;border-color:#eee0bd;background:#fffaf0}.card h3{margin:18px 0 4px;font-size:20px;letter-spacing:-.025em}.category{color:var(--ocean);font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.08em}.desc{color:#647871;margin:10px 0 17px;font-size:14px;flex:1}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.tag{font-size:10px;color:#748780;padding:5px 7px;border-radius:7px;background:#f4f7f6;border:1px solid #edf2f0}.card-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid #edf2f0;padding-top:14px}.card-foot a{font-weight:800;font-size:12px;color:#1b6ca8}.card-foot a:hover{text-decoration:underline}.use{font-size:10px;color:#8c9a96;text-align:right}.empty{grid-column:1/-1;text-align:center;padding:55px 20px;border:1px dashed var(--line-strong);border-radius:18px;color:var(--muted);background:#fbfcfc}
+    .guide{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.guidebox{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff}.guidebox h3{margin:0 0 8px;font-size:21px;letter-spacing:-.025em}.guidebox p{margin:0;color:var(--muted)}.stack{display:grid;gap:9px;margin-top:18px}.stack div{padding:12px 13px;border-left:3px solid var(--land);background:#f7fbf9;border-radius:0 10px 10px 0}.stack b{font-size:13px}.stack span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.earth-note{position:relative;overflow:hidden;background:linear-gradient(145deg,#123f34,#0f5f57);color:#fff}.earth-note:after{content:"";position:absolute;width:270px;height:270px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-80px;bottom:-100px;box-shadow:0 0 0 42px rgba(255,255,255,.025),0 0 0 84px rgba(255,255,255,.018)}.earth-note p{color:#d5e9e2}.earth-note .stack div{position:relative;z-index:1;background:rgba(255,255,255,.07);border-left-color:#7fe1bd}.earth-note .stack span{color:#bcd9d0}
     footer{border-top:1px solid var(--line);padding:30px 0 38px;background:#fff;color:#7b8e88}.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}.credit{color:#61736e}.credit b{color:#173f35}.tiny{font-size:12px}.top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(255,255,255,.92);color:#173f35;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 8px 25px rgba(25,58,48,.08)}
-
-    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.earth-stage{min-height:390px}.earth{width:390px}.orbit{width:430px}.grid{grid-template-columns:repeat(2,1fr)}.guide{grid-template-columns:1fr}}
-    @media(max-width:700px){.wrap{width:min(var(--max),calc(100% - 22px))}.nav{height:62px}.navlinks a:not(.github-pill){display:none}.brand small{display:none}.hero{padding:50px 0 34px}.hero-grid{gap:20px}.hero h1{font-size:46px}.earth-stage{min-height:300px}.earth{width:290px}.orbit{width:320px;height:105px}.orbit-dot{right:32px;top:82px}.earth-label{display:none}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.section{padding:52px 0}.section-head{display:block}.searchrow{grid-template-columns:1fr}.select{height:48px}.controls{top:62px}.grid{grid-template-columns:1fr}.resultbar span:last-child{display:none}.foot{align-items:flex-start;flex-direction:column}.card{min-height:0}}
+    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.earth-stage{min-height:410px}.grid{grid-template-columns:repeat(2,1fr)}.guide{grid-template-columns:1fr}}
+    @media(max-width:700px){.wrap{width:min(var(--max),calc(100% - 22px))}.nav{height:62px}.brand small{display:none}.navlinks a{font-size:13px;padding:7px 9px}.hero{padding:48px 0 32px}.hero-grid{gap:24px}.hero h1{font-size:46px}.earth-stage{min-height:330px}.earth-photo-wrap{width:min(310px,86vw)}.earth-marker{display:none}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.section{padding:52px 0}.section-head{display:block}.searchrow{grid-template-columns:1fr}.select{height:48px}.controls{top:62px}.grid{grid-template-columns:1fr}.resultbar span:last-child{display:none}.foot{align-items:flex-start;flex-direction:column}.card{min-height:0}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
@@ -119,7 +65,6 @@
       <nav class="navlinks" aria-label="Điều hướng chính">
         <a href="#tools">Công cụ</a>
         <a href="#guide">Gợi ý lựa chọn</a>
-        <a class="github-pill" href="https://github.com/Vietflexmap/Tools" target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
     </div>
   </header>
@@ -131,39 +76,14 @@
           <span class="eyebrow"><span class="eyebrow-dot"></span> GIS · Earth · Data · Intelligence</span>
           <h1>Công cụ để <span>hiểu Trái Đất</span> tốt hơn.</h1>
           <p class="lead">Danh mục GIS tiếng Việt dành cho bản đồ, dữ liệu không gian, viễn thám, WebGIS, 3D, GeoAI và lập trình địa không gian — được tổ chức để bạn tìm đúng công cụ cho đúng bài toán.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#tools">Khám phá công cụ ↓</a>
-            <a class="btn" href="https://github.com/Vietflexmap/Tools" target="_blank" rel="noreferrer">Kho nguồn GitHub ↗</a>
-          </div>
+          <div class="hero-actions"><a class="btn primary" href="#tools">Khám phá công cụ ↓</a></div>
           <div class="trustline"><span><b></b> Tìm kiếm nhanh</span><span><b></b> Phân nhóm chuyên môn</span><span><b></b> Mô tả tiếng Việt</span></div>
         </div>
-        <div class="earth-stage" aria-label="Minh họa Trái Đất và lưới tọa độ địa lý">
-          <div class="orbit"></div><div class="orbit-dot"></div>
-          <svg class="earth" viewBox="0 0 420 420" role="img" aria-label="Quả địa cầu tối giản">
-            <defs>
-              <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fcff"/><stop offset="1" stop-color="#e8f5fb"/></linearGradient>
-              <clipPath id="globe"><circle cx="210" cy="210" r="154"/></clipPath>
-            </defs>
-            <circle cx="210" cy="210" r="158" fill="#fff" stroke="#cfe0da" stroke-width="2"/>
-            <circle cx="210" cy="210" r="154" fill="url(#sea)"/>
-            <g clip-path="url(#globe)" fill="#79cda9" opacity=".96">
-              <path d="M113 126c18-18 40-27 65-31l26 11 8 19-20 17-6 20-16 10-17-8-9 12-18-7-3-18-15-8z"/>
-              <path d="M173 185l22 9 17 22-8 20 11 16-10 31-13 27-14 13-10-14 4-21-12-24 3-23-11-22z"/>
-              <path d="M239 109l29 4 14 13 23 1 20 18 14 8-6 15-25-1-14 12-20-5-10 13-18-7-16-19 9-17-12-14z"/>
-              <path d="M247 190l24-6 29 14 19 25-6 22-18 2-11 35-19 17-14-11-6-27-15-20 9-25z"/>
-              <path d="M317 279l15 6 9 14-8 13-20-3-7-13z"/>
-            </g>
-            <g fill="none" stroke="#0b79d0" stroke-opacity=".24" stroke-width="1.15">
-              <circle cx="210" cy="210" r="154"/>
-              <ellipse cx="210" cy="210" rx="78" ry="154"/>
-              <ellipse cx="210" cy="210" rx="122" ry="154"/>
-              <ellipse cx="210" cy="210" rx="154" ry="55"/>
-              <ellipse cx="210" cy="210" rx="154" ry="105"/>
-              <path d="M56 210h308"/>
-            </g>
-            <circle cx="210" cy="210" r="4" fill="#0b79d0"/>
-          </svg>
-          <div class="earth-label"><b>Spatial thinking</b>Mọi công cụ GIS đều bắt đầu từ vị trí, quan hệ và bối cảnh trên Trái Đất.</div>
+        <div class="earth-stage" aria-label="Ảnh Trái Đất nhìn từ không gian">
+          <div class="earth-photo-wrap">
+            <img class="earth-photo" loading="eager" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Africa_and_Europe_from_a_Million_Miles_Away_%28cropped%29.png" alt="Trái Đất với châu Phi và châu Âu nhìn từ không gian" />
+            <div class="earth-marker"><b>Spatial thinking</b>Vị trí, quan hệ và bối cảnh không gian là nền tảng của GIS.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -180,10 +100,7 @@
         <div class="section-head"><div><div class="micro">Directory</div><h2>Danh sách công cụ GIS</h2><p>Tìm theo tên, công nghệ, loại dữ liệu hoặc nhóm nghiệp vụ. Giao diện ưu tiên tốc độ đọc và lựa chọn công cụ.</p></div></div>
         <div class="controls">
           <div class="searchrow">
-            <label class="searchbox" aria-label="Tìm kiếm">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
-              <input id="search" type="search" placeholder="Tìm QGIS, DEM, PostGIS, Cesium, GeoAI, LiDAR…" autocomplete="off" />
-            </label>
+            <label class="searchbox" aria-label="Tìm kiếm"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg><input id="search" type="search" placeholder="Tìm QGIS, DEM, PostGIS, Cesium, GeoAI, LiDAR…" autocomplete="off" /></label>
             <select id="license" class="select" aria-label="Lọc hình thức sử dụng"><option value="all">Tất cả hình thức</option><option value="open">Mã nguồn mở / miễn phí</option><option value="commercial">Thương mại</option></select>
           </div>
           <div class="chips" id="chips" aria-label="Bộ lọc nhóm công cụ"></div>
@@ -197,26 +114,8 @@
       <div class="wrap">
         <div class="section-head"><div><div class="micro">Workflow</div><h2>Chọn nhanh theo bài toán</h2><p>Không cần cài mọi thứ. Một stack tốt là tập hợp tối thiểu giúp dữ liệu đi từ thu thập → xử lý → phân tích → xuất bản.</p></div></div>
         <div class="guide">
-          <div class="guidebox">
-            <h3>Stack GIS mã nguồn mở đa dụng</h3>
-            <p>Phù hợp học tập, nghiên cứu, cơ quan và các dự án cần tự chủ dữ liệu.</p>
-            <div class="stack">
-              <div><b>QGIS + GDAL + PROJ</b><span>Biên tập bản đồ, xử lý raster/vector và hệ tọa độ.</span></div>
-              <div><b>PostGIS + GeoServer</b><span>Lưu trữ dữ liệu tập trung và xuất bản dịch vụ GIS.</span></div>
-              <div><b>MapLibre + Turf.js</b><span>Xây WebGIS hiện đại và phân tích vector phía trình duyệt.</span></div>
-              <div><b>GeoPandas + Rasterio</b><span>Tự động hóa quy trình phân tích bằng Python.</span></div>
-            </div>
-          </div>
-          <div class="guidebox earth-note">
-            <h3>Từ dữ liệu đến “Digital Earth”</h3>
-            <p>GIS hiện đại không chỉ là phần mềm bản đồ mà là chuỗi công nghệ mô tả, phân tích và mô phỏng thế giới thực.</p>
-            <div class="stack">
-              <div><b>Quan sát</b><span>Satellite · Drone · LiDAR · IoT · Field GIS</span></div>
-              <div><b>Hiểu</b><span>Spatial analysis · Remote sensing · GeoAI</span></div>
-              <div><b>Mô phỏng</b><span>3D GIS · Digital Twin · Terrain · Simulation</span></div>
-              <div><b>Ra quyết định</b><span>WebGIS · Dashboard · Automation · Agent</span></div>
-            </div>
-          </div>
+          <div class="guidebox"><h3>Stack GIS mã nguồn mở đa dụng</h3><p>Phù hợp học tập, nghiên cứu, cơ quan và các dự án cần tự chủ dữ liệu.</p><div class="stack"><div><b>QGIS + GDAL + PROJ</b><span>Biên tập bản đồ, xử lý raster/vector và hệ tọa độ.</span></div><div><b>PostGIS + GeoServer</b><span>Lưu trữ dữ liệu tập trung và xuất bản dịch vụ GIS.</span></div><div><b>MapLibre + Turf.js</b><span>Xây WebGIS hiện đại và phân tích vector phía trình duyệt.</span></div><div><b>GeoPandas + Rasterio</b><span>Tự động hóa quy trình phân tích bằng Python.</span></div></div></div>
+          <div class="guidebox earth-note"><h3>Từ dữ liệu đến “Digital Earth”</h3><p>GIS hiện đại không chỉ là phần mềm bản đồ mà là chuỗi công nghệ mô tả, phân tích và mô phỏng thế giới thực.</p><div class="stack"><div><b>Quan sát</b><span>Satellite · Drone · LiDAR · IoT · Field GIS</span></div><div><b>Hiểu</b><span>Spatial analysis · Remote sensing · GeoAI</span></div><div><b>Mô phỏng</b><span>3D GIS · Digital Twin · Terrain · Simulation</span></div><div><b>Ra quyết định</b><span>WebGIS · Dashboard · Automation · Agent</span></div></div></div>
         </div>
       </div>
     </section>
@@ -233,80 +132,57 @@
       {n:'SAGA GIS',c:'GIS Desktop',i:'⛰️',l:'open',u:'https://saga-gis.sourceforge.io/',d:'Bộ công cụ địa khoa học với nhiều thuật toán về DEM, địa mạo, thủy văn và phân tích địa hình.',t:['DEM','terrain','hydrology','geoscience'],use:'Địa hình'},
       {n:'GeoDa',c:'GIS Desktop',i:'📊',l:'open',u:'https://geodacenter.github.io/',d:'Công cụ trực quan cho thống kê không gian, spatial autocorrelation, LISA và exploratory spatial data analysis.',t:['statistics','LISA','spatial weights','ESDA'],use:'Thống kê không gian'},
       {n:'Global Mapper',c:'GIS Desktop',i:'🧭',l:'commercial',u:'https://www.bluemarblegeo.com/global-mapper/',d:'GIS desktop thiên về xử lý dữ liệu nhiều định dạng, terrain, LiDAR, raster và quy trình kỹ thuật.',t:['LiDAR','terrain','raster','formats'],use:'GIS kỹ thuật'},
-
       {n:'ESA SNAP',c:'Viễn thám',i:'🛰️',l:'open',u:'https://step.esa.int/main/toolboxes/snap/',d:'Nền tảng của ESA cho xử lý dữ liệu Sentinel, radar SAR và chuỗi tác vụ viễn thám chuyên sâu.',t:['Sentinel','SAR','ESA','satellite'],use:'Sentinel/SAR'},
-      {n:'Orfeo ToolBox',c:'Viễn thám',i:'🛰️',l:'open',u:'https://www.orfeo-toolbox.org/',d:'Thư viện xử lý ảnh viễn thám hiệu năng cao với classification, segmentation, feature extraction và pipeline C++/Python.',t:['imagery','classification','segmentation','Python'],use:'Xử lý ảnh'},
-      {n:'ENVI',c:'Viễn thám',i:'🌈',l:'commercial',u:'https://www.nv5geospatialsoftware.com/Products/ENVI',d:'Phần mềm thương mại chuyên xử lý ảnh viễn thám, hyperspectral, classification và phân tích raster khoa học.',t:['hyperspectral','imagery','classification','raster'],use:'Viễn thám chuyên sâu'},
+      {n:'Orfeo ToolBox',c:'Viễn thám',i:'🛰️',l:'open',u:'https://www.orfeo-toolbox.org/',d:'Thư viện xử lý ảnh viễn thám hiệu năng cao với classification, segmentation và feature extraction.',t:['imagery','classification','segmentation','Python'],use:'Xử lý ảnh'},
+      {n:'ENVI',c:'Viễn thám',i:'🌈',l:'commercial',u:'https://www.nv5geospatialsoftware.com/Products/ENVI',d:'Phần mềm chuyên xử lý ảnh viễn thám, hyperspectral, classification và phân tích raster khoa học.',t:['hyperspectral','imagery','classification','raster'],use:'Viễn thám chuyên sâu'},
       {n:'Google Earth Engine',c:'Viễn thám',i:'☁️',l:'open',u:'https://earthengine.google.com/',d:'Nền tảng điện toán đám mây cho phân tích kho ảnh vệ tinh quy mô lớn bằng JavaScript hoặc Python.',t:['cloud','satellite','time series','Python'],use:'Phân tích quy mô lớn'},
-
       {n:'CesiumJS',c:'3D & Digital Earth',i:'🌍',l:'open',u:'https://cesium.com/platform/cesiumjs/',d:'Thư viện JavaScript cho địa cầu 3D, terrain, 3D Tiles và các ứng dụng Digital Earth trên web.',t:['3D','globe','3D Tiles','terrain'],use:'Digital Earth'},
       {n:'Cesium ion',c:'3D & Digital Earth',i:'🌐',l:'commercial',u:'https://cesium.com/platform/cesium-ion/',d:'Dịch vụ xử lý, tối ưu và phân phối dữ liệu 3D geospatial như terrain, imagery và 3D Tiles.',t:['3D Tiles','terrain','streaming','cloud'],use:'3D geospatial cloud'},
-      {n:'Blender',c:'3D & Digital Earth',i:'🧊',l:'open',u:'https://www.blender.org/',d:'Bộ công cụ 3D mã nguồn mở có thể kết hợp GIS, point cloud và script Python cho mô hình hóa và Digital Twin.',t:['3D','Python','mesh','digital twin'],use:'3D/Simulation'},
+      {n:'Blender',c:'3D & Digital Earth',i:'🧊',l:'open',u:'https://www.blender.org/',d:'Bộ công cụ 3D mã nguồn mở có thể kết hợp GIS, point cloud và Python cho mô hình hóa và Digital Twin.',t:['3D','Python','mesh','digital twin'],use:'3D/Simulation'},
       {n:'CloudCompare',c:'3D & Digital Earth',i:'☁️',l:'open',u:'https://www.cloudcompare.org/',d:'Phần mềm mã nguồn mở để xem, so sánh, lọc và đo đạc point cloud và mesh quy mô lớn.',t:['point cloud','LiDAR','mesh','measurement'],use:'Point cloud'},
-
       {n:'GeoServer',c:'WebGIS Server',i:'🗄️',l:'open',u:'https://geoserver.org/',d:'Máy chủ GIS mã nguồn mở phổ biến để xuất bản WMS, WFS, WCS, vector tiles và dữ liệu PostGIS.',t:['WMS','WFS','OGC','PostGIS'],use:'GIS server'},
       {n:'MapServer',c:'WebGIS Server',i:'🧱',l:'open',u:'https://mapserver.org/',d:'Map engine hiệu năng cao để xuất bản dữ liệu không gian và dịch vụ bản đồ trên web.',t:['WMS','rendering','server','OGC'],use:'Map server'},
       {n:'QGIS Server',c:'WebGIS Server',i:'🖥️',l:'open',u:'https://docs.qgis.org/latest/en/docs/server_manual/',d:'Máy chủ OGC dùng cùng project QGIS để xuất bản bản đồ với style và cấu hình nhất quán.',t:['QGIS','WMS','WFS','OGC'],use:'Xuất bản QGIS'},
       {n:'GeoNode',c:'WebGIS Server',i:'🗂️',l:'open',u:'https://geonode.org/',d:'Nền tảng quản lý, catalog, chia sẻ dữ liệu và bản đồ không gian mã nguồn mở.',t:['catalog','SDI','metadata','sharing'],use:'Cổng dữ liệu GIS'},
       {n:'MapTiler Server',c:'WebGIS Server',i:'🧩',l:'commercial',u:'https://www.maptiler.com/server/',d:'Máy chủ self-host để phân phối vector tile, raster, ảnh và dữ liệu GIS trong hạ tầng riêng.',t:['tiles','self-hosted','vector tiles','raster'],use:'Tile server'},
-
       {n:'MapLibre GL JS',c:'WebGIS Frontend',i:'🧭',l:'open',u:'https://maplibre.org/maplibre-gl-js/docs/',d:'Thư viện WebGL mã nguồn mở để hiển thị vector tiles, style động và bản đồ web hiện đại.',t:['WebGL','vector tiles','JavaScript','style'],use:'Web map hiện đại'},
       {n:'Leaflet',c:'WebGIS Frontend',i:'🍃',l:'open',u:'https://leafletjs.com/',d:'Thư viện JavaScript nhẹ, dễ học, phù hợp bản đồ 2D, GeoJSON và hệ sinh thái plugin rộng.',t:['JavaScript','GeoJSON','2D','plugin'],use:'WebGIS nhẹ'},
       {n:'OpenLayers',c:'WebGIS Frontend',i:'🧭',l:'open',u:'https://openlayers.org/',d:'Thư viện web map giàu tính năng, hỗ trợ projection, nhiều nguồn dữ liệu và chuẩn dịch vụ OGC.',t:['projection','WMS','WFS','JavaScript'],use:'WebGIS chuẩn OGC'},
       {n:'deck.gl',c:'WebGIS Frontend',i:'✨',l:'open',u:'https://deck.gl/',d:'Framework WebGL chuyên trực quan hóa dữ liệu không gian lớn bằng nhiều lớp 2D/3D.',t:['WebGL','big data','visualization','3D'],use:'Visual analytics'},
       {n:'Turf.js',c:'WebGIS Frontend',i:'📐',l:'open',u:'https://turfjs.org/',d:'Thư viện geoprocessing phía trình duyệt với buffer, intersect, centroid, distance và nhiều phép toán GeoJSON.',t:['buffer','intersect','GeoJSON','JavaScript'],use:'Geoprocessing web'},
       {n:'ArcGIS Maps SDK for JavaScript',c:'WebGIS Frontend',i:'🧱',l:'commercial',u:'https://developers.arcgis.com/javascript/latest/',d:'SDK của Esri để xây ứng dụng bản đồ 2D/3D tích hợp ArcGIS Online và ArcGIS Enterprise.',t:['Esri','2D','3D','enterprise'],use:'WebGIS Esri'},
-
       {n:'PostGIS',c:'CSDL không gian',i:'🐘',l:'open',u:'https://postgis.net/',d:'Mở rộng không gian cho PostgreSQL với geometry, geography, spatial index và truy vấn GIS mạnh bằng SQL.',t:['PostgreSQL','SQL','spatial index','server'],use:'CSDL GIS chuẩn'},
       {n:'SpatiaLite',c:'CSDL không gian',i:'💾',l:'open',u:'https://www.gaia-gis.it/fossil/libspatialite/index',d:'Mở rộng không gian cho SQLite, phù hợp ứng dụng offline và dữ liệu cục bộ không cần máy chủ.',t:['SQLite','offline','SQL','embedded'],use:'GIS offline'},
       {n:'GeoPackage',c:'CSDL không gian',i:'📦',l:'open',u:'https://www.geopackage.org/',d:'Chuẩn OGC dựa trên SQLite để đóng gói vector, raster và tile trong một tệp duy nhất.',t:['OGC','SQLite','vector','raster'],use:'Trao đổi dữ liệu'},
       {n:'DuckDB Spatial',c:'CSDL không gian',i:'🦆',l:'open',u:'https://duckdb.org/docs/stable/core_extensions/spatial/overview.html',d:'Extension không gian cho DuckDB, phù hợp phân tích nhanh dữ liệu lớn tại máy bằng SQL.',t:['DuckDB','SQL','analytics','local'],use:'Phân tích nhanh'},
       {n:'pgRouting',c:'CSDL không gian',i:'🛣️',l:'open',u:'https://pgrouting.org/',d:'Mở rộng định tuyến cho PostgreSQL/PostGIS với shortest path và nhiều thuật toán mạng.',t:['routing','network','PostGIS','graph'],use:'Định tuyến'},
-
       {n:'GDAL/OGR',c:'Xử lý dữ liệu',i:'🔁',l:'open',u:'https://gdal.org/',d:'Hạ tầng lõi của GIS mã nguồn mở để đọc, ghi, chuyển đổi và xử lý rất nhiều định dạng raster/vector.',t:['raster','vector','CLI','conversion'],use:'Chuyển đổi dữ liệu'},
       {n:'PROJ',c:'Xử lý dữ liệu',i:'📍',l:'open',u:'https://proj.org/',d:'Thư viện nền tảng cho biến đổi hệ tọa độ, datum và phép chiếu bản đồ.',t:['CRS','projection','datum','transform'],use:'Hệ tọa độ'},
       {n:'PDAL',c:'Xử lý dữ liệu',i:'☁️',l:'open',u:'https://pdal.io/',d:'Thư viện và CLI xử lý point cloud LAS/LAZ, lọc, chuyển đổi và pipeline LiDAR.',t:['LiDAR','LAS','LAZ','point cloud'],use:'Point cloud'},
       {n:'FME',c:'Xử lý dữ liệu',i:'🔀',l:'commercial',u:'https://fme.safe.com/',d:'Nền tảng ETL dữ liệu mạnh để tích hợp, chuyển đổi và tự động hóa luồng dữ liệu GIS.',t:['ETL','automation','conversion','enterprise'],use:'Tích hợp dữ liệu'},
       {n:'Tippecanoe',c:'Xử lý dữ liệu',i:'🧱',l:'open',u:'https://github.com/felt/tippecanoe',d:'Công cụ tạo vector tiles từ GeoJSON và tối ưu dữ liệu lớn cho bản đồ web nhiều mức zoom.',t:['vector tiles','GeoJSON','CLI','tiles'],use:'Tạo vector tiles'},
       {n:'PMTiles',c:'Xử lý dữ liệu',i:'🗜️',l:'open',u:'https://protomaps.com/docs/pmtiles',d:'Định dạng archive cho map tiles trong một file, phù hợp triển khai bản đồ tĩnh và serverless.',t:['tiles','single file','HTTP','serverless'],use:'Bản đồ serverless'},
-
       {n:'GeoPandas',c:'Python GIS',i:'🐼',l:'open',u:'https://geopandas.org/',d:'Thư viện Python mở rộng pandas cho dữ liệu vector, spatial join, overlay và CRS.',t:['Python','vector','pandas','analysis'],use:'Python vector'},
       {n:'Shapely',c:'Python GIS',i:'🔷',l:'open',u:'https://shapely.readthedocs.io/',d:'Thư viện Python cho geometry với buffer, intersect, union, validity và thao tác hình học cốt lõi.',t:['Python','geometry','GEOS','vector'],use:'Hình học'},
       {n:'Rasterio',c:'Python GIS',i:'🟫',l:'open',u:'https://rasterio.readthedocs.io/',d:'Thư viện Python đọc, ghi và xử lý raster địa không gian dựa trên GDAL.',t:['Python','raster','GDAL','GeoTIFF'],use:'Python raster'},
       {n:'PyProj',c:'Python GIS',i:'🧭',l:'open',u:'https://pyproj4.github.io/pyproj/stable/',d:'Giao diện Python cho PROJ để xử lý CRS, biến đổi tọa độ và geodesic.',t:['Python','CRS','PROJ','transform'],use:'CRS trong Python'},
       {n:'Xarray',c:'Python GIS',i:'🧮',l:'open',u:'https://xarray.dev/',d:'Thư viện mảng đa chiều có nhãn, hữu ích với NetCDF, climate data, time series và data cube.',t:['Python','NetCDF','multidimensional','climate'],use:'Data cube'},
       {n:'rioxarray',c:'Python GIS',i:'🧊',l:'open',u:'https://corteva.github.io/rioxarray/stable/',d:'Mở rộng Xarray với CRS, clip, reproject và GeoTIFF cho dữ liệu raster địa không gian.',t:['Python','Xarray','raster','CRS'],use:'Raster đa chiều'},
-
       {n:'TorchGeo',c:'GeoAI',i:'🧠',l:'open',u:'https://torchgeo.readthedocs.io/',d:'Thư viện PyTorch chuyên dữ liệu địa không gian với dataset, sampler và pipeline deep learning cho ảnh vệ tinh.',t:['PyTorch','deep learning','satellite','dataset'],use:'Deep learning GIS'},
       {n:'Raster Vision',c:'GeoAI',i:'🤖',l:'open',u:'https://docs.rastervision.io/',d:'Framework xây pipeline machine learning trên ảnh raster cho classification, detection và segmentation.',t:['ML','segmentation','detection','raster'],use:'AI ảnh vệ tinh'},
       {n:'Segment Anything',c:'GeoAI',i:'✂️',l:'open',u:'https://github.com/facebookresearch/segment-anything',d:'Mô hình segmentation nền tảng có thể tích hợp pipeline GIS/viễn thám để tách đối tượng từ ảnh.',t:['segmentation','foundation model','vision','mask'],use:'Tách đối tượng'},
       {n:'scikit-learn',c:'GeoAI',i:'📈',l:'open',u:'https://scikit-learn.org/',d:'Bộ machine learning Python phổ biến cho classification, regression, clustering và feature pipeline.',t:['ML','classification','clustering','Python'],use:'ML cổ điển'},
-
       {n:'Kepler.gl',c:'Trực quan hóa',i:'🌌',l:'open',u:'https://kepler.gl/',d:'Ứng dụng WebGL trực quan hóa dữ liệu không gian lớn với layer, filter và time playback.',t:['WebGL','visualization','big data','time'],use:'Khám phá dữ liệu'},
       {n:'QField',c:'Mobile GIS',i:'📱',l:'open',u:'https://qfield.org/',d:'Ứng dụng khảo sát hiện trường gắn với QGIS, hỗ trợ biểu mẫu, GPS, offline và đồng bộ.',t:['field','QGIS','offline','GPS'],use:'Khảo sát hiện trường'},
       {n:'Mergin Maps',c:'Mobile GIS',i:'📲',l:'open',u:'https://merginmaps.com/',d:'Nền tảng khảo sát hiện trường dựa trên QGIS với offline, biểu mẫu và đồng bộ dữ liệu nhóm.',t:['field','QGIS','sync','mobile'],use:'Thu thập dữ liệu'}
     ];
-
     const categories=['Tất cả',...new Set(tools.map(x=>x.c))];
     const grid=document.getElementById('grid'),chips=document.getElementById('chips'),search=document.getElementById('search'),license=document.getElementById('license');
     let active='Tất cả';
     const escapeHtml=s=>String(s).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[m]));
-
-    function renderChips(){
-      chips.innerHTML=categories.map(c=>`<button class="chip ${c===active?'active':''}" data-c="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');
-      chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{active=b.dataset.c;renderChips();render();});
-    }
-    function render(){
-      const q=search.value.trim().toLowerCase(),lf=license.value;
-      const data=tools.filter(x=>(active==='Tất cả'||x.c===active)&&(lf==='all'||x.l===lf)&&(!q||[x.n,x.c,x.d,x.use,...x.t].join(' ').toLowerCase().includes(q)));
-      document.getElementById('resultCount').textContent=data.length;
-      grid.innerHTML=data.length?data.map(x=>`<article class="card"><div class="card-top"><div class="tool-icon">${x.i}</div><div class="badges"><span class="badge ${x.l}">${x.l==='open'?'Mã nguồn mở / miễn phí':'Thương mại'}</span></div></div><h3>${escapeHtml(x.n)}</h3><div class="category">${escapeHtml(x.c)}</div><p class="desc">${escapeHtml(x.d)}</p><div class="tags">${x.t.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div><div class="card-foot"><a href="${x.u}" target="_blank" rel="noreferrer">Mở trang chính thức ↗</a><span class="use">${escapeHtml(x.use)}</span></div></article>`).join(''):`<div class="empty"><b>Không tìm thấy công cụ phù hợp.</b><br>Thử từ khóa khác hoặc thay đổi bộ lọc.</div>`;
-    }
-    search.addEventListener('input',render);license.addEventListener('change',render);
-    document.getElementById('toolCount').textContent=tools.length;
-    document.getElementById('catCount').textContent=new Set(tools.map(x=>x.c)).size;
-    document.getElementById('openCount').textContent=tools.filter(x=>x.l==='open').length;
-    renderChips();render();
+    function renderChips(){chips.innerHTML=categories.map(c=>`<button class="chip ${c===active?'active':''}" data-c="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{active=b.dataset.c;renderChips();render();});}
+    function render(){const q=search.value.trim().toLowerCase(),lf=license.value;const data=tools.filter(x=>(active==='Tất cả'||x.c===active)&&(lf==='all'||x.l===lf)&&(!q||[x.n,x.c,x.d,x.use,...x.t].join(' ').toLowerCase().includes(q)));document.getElementById('resultCount').textContent=data.length;grid.innerHTML=data.length?data.map(x=>`<article class="card"><div class="card-top"><div class="tool-icon">${x.i}</div><div class="badges"><span class="badge ${x.l}">${x.l==='open'?'Mã nguồn mở / miễn phí':'Thương mại'}</span></div></div><h3>${escapeHtml(x.n)}</h3><div class="category">${escapeHtml(x.c)}</div><p class="desc">${escapeHtml(x.d)}</p><div class="tags">${x.t.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div><div class="card-foot"><a href="${x.u}" target="_blank" rel="noreferrer">Mở trang chính thức ↗</a><span class="use">${escapeHtml(x.use)}</span></div></article>`).join(''):`<div class="empty"><b>Không tìm thấy công cụ phù hợp.</b><br>Thử từ khóa khác hoặc thay đổi bộ lọc.</div>`;}
+    search.addEventListener('input',render);license.addEventListener('change',render);document.getElementById('toolCount').textContent=tools.length;document.getElementById('catCount').textContent=new Set(tools.map(x=>x.c)).size;document.getElementById('openCount').textContent=tools.filter(x=>x.l==='open').length;renderChips();render();
   </script>
 </body>
 </html>
