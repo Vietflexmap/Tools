@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Kiến thức nền tảng GIS theo 5 tầng – 5 chức năng, từ hệ tọa độ và thu thập dữ liệu đến GeoAI, Digital Twin và ứng dụng." />
+  <title>Về GIS · Vietflex GIS Tools</title>
+  <style>
+    :root{
+      --bg:#fff;--surface:#f7f9fb;--surface2:#f1f5f8;--ink:#10231f;--muted:#667a74;
+      --line:#dfe8e4;--line2:#cddbd5;--ocean:#0b79d0;--land:#1e9a69;--deep:#123f34;
+      --t1:#1a5276;--t2:#1e8449;--t3:#b7950b;--t4:#6c3483;--t5:#c0392b;
+      --shadow:0 18px 60px rgba(28,58,49,.08);--radius:20px;--max:1240px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(223,232,228,.95)}
+    .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.025em}.brandmark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line2);background:linear-gradient(145deg,#fff,#f3faf7);position:relative;overflow:hidden}.brandmark:before,.brandmark:after{content:"";position:absolute;border:1px solid rgba(11,121,208,.35);border-radius:50%}.brandmark:before{width:27px;height:35px}.brandmark:after{width:35px;height:13px}.brandmark i{width:26px;height:1px;background:rgba(11,121,208,.45);position:absolute}.brand small{display:block;margin-top:1px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.navlinks{display:flex;align-items:center;gap:4px}.navlinks a{padding:9px 12px;border-radius:999px;color:#435b54;font-size:14px;font-weight:700}.navlinks a:hover{background:var(--surface)}.navlinks a.active{background:var(--deep);color:#fff}
+    .hero{position:relative;overflow:hidden;padding:74px 0 48px;border-bottom:1px solid #edf2ef}.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(28,92,74,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(28,92,74,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 88%)}.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #d9ebe4;border-radius:999px;background:rgba(255,255,255,.88);color:#2d6553;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--ocean),var(--land));box-shadow:0 0 0 4px #eef8f5}.hero h1{margin:20px 0 16px;max-width:760px;font-size:clamp(42px,5.6vw,70px);line-height:1;letter-spacing:-.055em}.hero h1 span{color:var(--ocean)}.hero p{margin:0;max-width:760px;color:#5d726c;font-size:clamp(17px,2vw,20px)}
+    .earth-card{position:relative;min-height:360px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#f8fcff,#f2faf6);overflow:hidden;display:grid;place-items:center}.earth-card:before{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(11,121,208,.16);border-radius:50%;box-shadow:0 0 0 44px rgba(11,121,208,.025),0 0 0 88px rgba(30,154,105,.02)}.globe{position:relative;width:210px;height:210px;border:1.5px solid #bcd6cc;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fff 0,#eef8fb 45%,#e8f4ef 100%);box-shadow:0 24px 50px rgba(31,82,67,.10)}.globe:before,.globe:after{content:"";position:absolute;border:1px solid rgba(11,121,208,.30);border-radius:50%;inset:18px 64px}.globe:after{inset:74px 12px}.globe i{position:absolute;left:14px;right:14px;top:50%;height:1px;background:rgba(11,121,208,.25)}.globe b{position:absolute;width:54px;height:34px;background:#72c6a2;border-radius:54% 46% 58% 42%;left:43px;top:55px;transform:rotate(-13deg);opacity:.9}.globe em{position:absolute;width:40px;height:72px;background:#72c6a2;border-radius:50% 42% 58% 50%;left:99px;top:98px;transform:rotate(15deg);opacity:.9}.earth-note{position:absolute;left:22px;bottom:18px;right:22px;color:#557069;font-size:12px}.earth-note b{display:block;color:var(--ink);font-size:14px;margin-bottom:3px}
+    .five{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}.five a{padding:18px 14px;border-right:1px solid var(--line);background:#fff}.five a:last-child{border-right:0}.five span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}.five b{display:block;margin-top:3px;font-size:14px}.five a:nth-child(1){border-top:3px solid var(--t1)}.five a:nth-child(2){border-top:3px solid var(--t2)}.five a:nth-child(3){border-top:3px solid var(--t3)}.five a:nth-child(4){border-top:3px solid var(--t4)}.five a:nth-child(5){border-top:3px solid var(--t5)}
+    .content{padding:64px 0}.section-head{margin-bottom:22px}.micro{font-size:12px;color:#81918c;text-transform:uppercase;letter-spacing:.1em;font-weight:800}.section-head h2{margin:5px 0 8px;font-size:clamp(28px,3.3vw,42px);line-height:1.05;letter-spacing:-.04em}.section-head p{margin:0;color:var(--muted);max-width:820px}
+    .toc{position:sticky;top:68px;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid #edf2ef}.toc .wrap{display:flex;gap:8px;overflow:auto;padding:10px 0;scrollbar-width:none}.toc .wrap::-webkit-scrollbar{display:none}.toc a{white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#557069;font-size:12px;font-weight:800}.toc a:hover{border-color:#afc9c0;background:#f8fbfa}
+    .layer{margin:0 0 28px;border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden}.layer-head{display:flex;align-items:center;gap:14px;padding:20px 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfcfc)}.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;flex:none}.layer-head h3{margin:0;font-size:22px;letter-spacing:-.025em}.fn{margin-left:auto;padding:6px 10px;border-radius:999px;background:var(--surface);color:#526a62;font-size:11px;font-weight:850}.l1 .num{background:var(--t1)}.l2 .num{background:var(--t2)}.l3 .num{background:var(--t3)}.l4 .num{background:var(--t4)}.l5 .num{background:var(--t5)}.layer-body{padding:22px}.layer-desc{margin:0 0 18px;color:#647871}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}.table-wrap table{width:100%;border-collapse:collapse;min-width:930px;font-size:13px}.table-wrap th{padding:12px;text-align:left;background:#f5f8f7;border-bottom:1px solid var(--line);color:#405851}.table-wrap td{padding:12px;border-bottom:1px solid #edf2f0;vertical-align:top}.table-wrap tr:last-child td{border-bottom:0}.table-wrap tr:hover td{background:#fbfcfc}code{padding:2px 5px;border-radius:6px;background:#f3f6f5;color:#345c50}.tag{display:inline-block;padding:3px 7px;margin:1px;border-radius:999px;background:#eef7ff;color:#216da4;font-size:11px;font-weight:800}.ref{color:#60736d;font-size:12px}.ref strong{color:#314942}
+    .matrix{margin-top:28px}.matrix table{min-width:760px}.matrix td{text-align:center}.matrix td:first-child{text-align:left}.core{background:#edf9f3;color:#1e8449;font-weight:900}.strong{background:#eef6fc;color:#2477ab;font-weight:900}.weak{color:#b0bdb8}
+    .summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:18px}.summary-card{padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff}.summary-card b{display:block;margin-bottom:6px}.summary-card p{margin:0;color:var(--muted);font-size:13px}.formula{margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:18px;background:#f8fbfa;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.9}.lessons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.lesson{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff}.lesson h4{margin:0 0 7px;font-size:17px}.lesson p{margin:0;color:var(--muted);font-size:13px}
+    footer{border-top:1px solid var(--line);padding:30px 0 38px;color:#7b8e88}.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}.credit b{color:#173f35}.tiny{font-size:12px}.top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.94);color:#173f35;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 25px rgba(25,58,48,.08)}
+    @media(max-width:980px){.hero-grid{grid-template-columns:1fr}.earth-card{min-height:300px}.five{grid-template-columns:1fr 1fr}.five a{border-bottom:1px solid var(--line)}.summary-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.wrap{width:min(var(--max),calc(100% - 22px))}.nav{height:62px}.brand small{display:none}.navlinks a:nth-child(2){display:none}.navlinks a{padding:8px 10px;font-size:12px}.hero{padding:48px 0 32px}.hero h1{font-size:44px}.earth-card{min-height:270px}.five{grid-template-columns:1fr}.five a{border-right:0}.content{padding:48px 0}.layer-head{align-items:flex-start;flex-wrap:wrap}.fn{margin-left:58px}.layer-body{padding:16px}.summary-grid,.lessons{grid-template-columns:1fr}.foot{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="./index.html" aria-label="Vietflex GIS Tools">
+        <span class="brandmark"><i></i></span>
+        <span>Vietflex GIS Tools<small>Vietnamese Geospatial Directory</small></span>
+      </a>
+      <nav class="navlinks" aria-label="Điều hướng chính">
+        <a href="./index.html#tools">Công cụ</a>
+        <a href="./index.html#guide">Gợi ý lựa chọn</a>
+        <a class="active" href="./ve-gis.html" aria-current="page">Về GIS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Kiến thức nền tảng chung</span>
+          <h1>GIS là hệ thống để <span>hiểu thế giới theo không gian.</span></h1>
+          <p>Khung kiến thức 5 tầng – 5 chức năng giúp nhìn GIS không chỉ như một phần mềm bản đồ, mà như một chuỗi hoàn chỉnh từ nền tảng không gian, thu thập dữ liệu, quản lý, phân tích đến hiển thị và ra quyết định.</p>
+        </div>
+        <div class="earth-card" aria-label="Minh họa tư duy không gian">
+          <div class="globe"><i></i><b></b><em></em></div>
+          <div class="earth-note"><b>Spatial thinking</b>Vị trí · Quan hệ · Quy mô · Thời gian · Bối cảnh là nền tảng chung của mọi hệ GIS.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="five">
+      <a href="#t1"><span>Tầng 1</span><b>Nền tảng không gian · THAO TÁC</b></a>
+      <a href="#t2"><span>Tầng 2</span><b>Thu thập & Truyền · THU THẬP</b></a>
+      <a href="#t3"><span>Tầng 3</span><b>Nền tảng dữ liệu · QUẢN LÝ</b></a>
+      <a href="#t4"><span>Tầng 4</span><b>Phương pháp / Trí tuệ · PHÂN TÍCH</b></a>
+      <a href="#t5"><span>Tầng 5</span><b>Mục tiêu / Ứng dụng · HIỂN THỊ</b></a>
+    </div>
+
+    <nav class="toc" aria-label="Mục lục kiến thức GIS"><div class="wrap">
+      <a href="#overview">Tổng quan</a><a href="#t1">Tầng 1</a><a href="#t2">Tầng 2</a><a href="#t3">Tầng 3</a><a href="#t4">Tầng 4</a><a href="#t5">Tầng 5</a><a href="#matrix">Ma trận</a><a href="#summary">Tổng kết</a>
+    </div></nav>
+
+    <section class="content" id="overview"><div class="wrap">
+      <div class="section-head"><div class="micro">Foundation</div><h2>5 tầng để đọc toàn bộ hệ sinh thái GIS</h2><p>Khung này tổ chức GIS thành năm lớp liên tục. Một dự án thực tế có thể đi qua cả năm tầng, nhưng mỗi chức năng có một tầng chủ đạo riêng.</p></div>
+
+      <article class="layer l1" id="t1"><div class="layer-head"><div class="num">1</div><h3>NỀN TẢNG KHÔNG GIAN</h3><span class="fn">THAO TÁC</span></div><div class="layer-body"><p class="layer-desc">Địa lý (Geo), Map, Tọa độ, Hệ quy chiếu. Đây là lớp nền toán học – hình học mà mọi dữ liệu không gian phải tuân theo. Mọi phép biến đổi hình học, chuyển hệ tọa độ, topology đều diễn ra ở tầng này.</p><div class="table-wrap"><table><thead><tr><th>Danh mục</th><th>Từ khóa / Khái niệm</th><th>Công cụ / Phần mềm</th><th>Bài học tham chiếu quốc tế</th></tr></thead><tbody>
+        <tr><td><strong>Hệ quy chiếu & Tọa độ</strong></td><td><span class="tag">WGS84</span><span class="tag">VN2000</span><span class="tag">UTM</span> Datum, Phép chiếu</td><td><code>PROJ</code>, <code>GDAL/OGR</code>, <code>pyproj</code></td><td class="ref"><strong>Mỹ:</strong> NSDI nhấn mạnh chuẩn hóa dữ liệu khung làm nền tảng cho ứng dụng cấp quốc gia. <strong>Trung Quốc:</strong> phát triển nền tảng không gian số tích hợp BeiDou.</td></tr>
+        <tr><td><strong>Chuyển đổi tọa độ</strong></td><td>2D Four-parameter, 3D Seven-parameter, Molodensky</td><td><code>SuperMap iDesktopX</code>, <code>Bentley Map</code></td><td class="ref"><strong>Nga:</strong> củng cố hệ tọa độ thống nhất và mạng lưới trắc địa quốc gia.</td></tr>
+        <tr><td><strong>Biên tập hình học</strong></td><td>Buffer, Clip, Merge, Intersect, Union</td><td><code>QGIS</code>, <code>ArcGIS Pro</code>, <code>Aspose.GIS</code></td><td class="ref"><strong>Châu Âu:</strong> INSPIRE tạo khung dữ liệu không gian chung để tăng khả năng tương tác.</td></tr>
+        <tr><td><strong>Topology</strong></td><td>Topology Rules, Topology Check, Snap</td><td><code>QGIS</code>, <code>SuperMap iDesktopX</code>, <code>MapGIS Desktop</code></td><td class="ref">Tiêu chuẩn dữ liệu và quan hệ đối tác là điều kiện quan trọng của hạ tầng dữ liệu không gian.</td></tr>
+        <tr><td><strong>Tổng quát hóa bản đồ</strong></td><td>Generalization, Simplify, Smoothing</td><td><code>ArcGIS Pro</code>, <code>SuperMap iDesktopX</code></td><td class="ref">Hạ tầng bản đồ đang chuyển mạnh sang dữ liệu số, 3D và tự động hóa.</td></tr>
+        <tr><td><strong>Chuyển đổi định dạng</strong></td><td>Shapefile, GeoJSON, FileGDB, GeoPackage</td><td><code>GDAL/OGR</code>, <code>SuperMap TransformX</code></td><td class="ref"><strong>Châu Âu:</strong> nguyên tắc FAIR nhấn mạnh dữ liệu phải tìm được, truy cập được, tương tác được và tái sử dụng được.</td></tr>
+      </tbody></table></div></div></article>
+
+      <article class="layer l2" id="t2"><div class="layer-head"><div class="num">2</div><h3>THU THẬP & TRUYỀN</h3><span class="fn">THU THẬP</span></div><div class="layer-body"><p class="layer-desc">GPS/GNSS, Viễn thám, Vệ tinh, Drone/UAV, IoT, 6G. Đây là các “giác quan” của hệ sinh thái GIS – nơi thế giới thực được chuyển hóa thành dữ liệu số.</p><div class="table-wrap"><table><thead><tr><th>Danh mục</th><th>Từ khóa / Khái niệm</th><th>Công cụ / Phần mềm</th><th>Bài học tham chiếu quốc tế</th></tr></thead><tbody>
+        <tr><td><strong>GNSS/GPS</strong></td><td>RTK, BeiDou, GLONASS, Galileo, Centimeter-level</td><td><code>Emlid RS4 Pro</code>, <code>Trimble R12i</code></td><td class="ref">Các mạng định vị chính xác cao được tích hợp vào giao thông, năng lượng và hệ thống tự động.</td></tr>
+        <tr><td><strong>Drone/UAV</strong></td><td>Photogrammetry, LiDAR, Multispectral, Thermal</td><td><code>DJI Matrice 300 RTK</code>, <code>WingtraOne</code>, <code>eBee</code></td><td class="ref">UAV kết hợp vệ tinh giúp cung cấp ảnh trước – sau thảm họa và dữ liệu hiện trường nhanh.</td></tr>
+        <tr><td><strong>Viễn thám vệ tinh</strong></td><td>Multispectral, SAR, Hyperspectral</td><td><code>Landsat</code>, <code>Sentinel</code>, <code>Planet Labs</code></td><td class="ref"><strong>Châu Âu:</strong> Copernicus cung cấp dữ liệu quan sát Trái Đất gần thời gian thực. <strong>Mỹ:</strong> GEOINT tận dụng sự bùng nổ cảm biến và AI/ML.</td></tr>
+        <tr><td><strong>LiDAR mặt đất</strong></td><td>Terrestrial Laser Scanning, Point Cloud</td><td><code>Riegl VZ-400i</code>, <code>Riegl VZ-6000</code></td><td class="ref">Point cloud hỗ trợ xây dựng mô hình không gian chi tiết và cập nhật thực địa.</td></tr>
+        <tr><td><strong>IoT & Cảm biến</strong></td><td>Environmental Sensors, Traffic Sensors</td><td><code>Arduino</code>, <code>Raspberry Pi</code>, <code>Libelium</code></td><td class="ref">Cảm biến thương mại mở rộng nguồn dữ liệu thời gian thực cho GIS và GEOINT.</td></tr>
+        <tr><td><strong>6G & Truyền dữ liệu</strong></td><td>6G, 5G, Low Latency, Edge-to-Cloud</td><td><code>Qualcomm</code>, <code>Ericsson</code>, <code>Nokia</code></td><td class="ref">Hạ tầng truyền thông ngày càng gắn với hệ sinh thái định vị, viễn thám và xử lý thời gian thực.</td></tr>
+      </tbody></table></div></div></article>
+
+      <article class="layer l3" id="t3"><div class="layer-head"><div class="num">3</div><h3>NỀN TẢNG DỮ LIỆU & PLATFORM</h3><span class="fn">QUẢN LÝ</span></div><div class="layer-body"><p class="layer-desc">GIS, Cloud, Edge, Blockchain, BIM. Đây là “bộ não lưu trữ” – nơi dữ liệu không gian được tổ chức, bảo toàn, truy xuất và chia sẻ một cách có kiểm soát.</p><div class="table-wrap"><table><thead><tr><th>Danh mục</th><th>Từ khóa / Khái niệm</th><th>Công cụ / Phần mềm</th><th>Bài học tham chiếu quốc tế</th></tr></thead><tbody>
+        <tr><td><strong>CSDL không gian</strong></td><td>PostGIS, Oracle Spatial, GeoJSON</td><td><code>PostGIS</code>, <code>Oracle Spatial</code>, <code>MongoDB</code></td><td class="ref">Thiếu cơ chế chia sẻ dữ liệu thống nhất có thể trở thành rào cản lớn trong hợp tác liên cơ quan.</td></tr>
+        <tr><td><strong>CSDL phân tán</strong></td><td>Distributed Spatial DB, Spatio-temporal Engine</td><td><code>Lindorm GanosBase</code>, <code>HBase + GeoMesa</code></td><td class="ref">Dữ liệu không gian cần được xem như một tài sản có cơ chế phối hợp và quản trị rõ ràng.</td></tr>
+        <tr><td><strong>Web GIS Server</strong></td><td>OGC Services (WMS, WFS, WMTS)</td><td><code>NextGIS Web</code>, <code>GeoServer</code>, <code>MapServer</code></td><td class="ref">Chuẩn mở giúp dữ liệu môi trường, thủy văn, địa hình, lớp phủ và thiên tai có thể tái sử dụng.</td></tr>
+        <tr><td><strong>Cloud GIS</strong></td><td>SaaS GIS, Elastic Scaling</td><td><code>SuperMap Online</code>, <code>ArcGIS Online</code>, <code>Google Earth Engine</code></td><td class="ref">Dữ liệu mở và hợp tác công – tư trở thành thành phần quan trọng của hạ tầng không gian hiện đại.</td></tr>
+        <tr><td><strong>Edge GIS</strong></td><td>Edge Computing, Real-time Analysis</td><td><code>SuperMap iEdge</code></td><td class="ref">Hạ tầng thông tin không-thời gian mới gắn với AI và xử lý gần nguồn dữ liệu.</td></tr>
+        <tr><td><strong>BIM & GIS-BIM</strong></td><td>IFC, openBIM, CIM Platform</td><td><code>Autodesk Revit</code>, <code>SuperMap CIM</code></td><td class="ref">SDI đang tiến hóa sang hệ sinh thái dữ liệu tích hợp bản sao số và không gian dữ liệu.</td></tr>
+        <tr><td><strong>Blockchain</strong></td><td>Data Integrity, Traceability</td><td><code>MINDIS XR</code>, <code>OpenCDE</code></td><td class="ref">Chủ quyền dữ liệu, truy vết và nền tảng nội địa là chủ đề quản trị ngày càng quan trọng.</td></tr>
+      </tbody></table></div></div></article>
+
+      <article class="layer l4" id="t4"><div class="layer-head"><div class="num">4</div><h3>PHƯƠNG PHÁP / TRÍ TUỆ</h3><span class="fn">PHÂN TÍCH</span></div><div class="layer-body"><p class="layer-desc">AI, GeoAI, LLM, Spatial Computing, Big Data. Đây là “bộ não phân tích” – nơi dữ liệu thô được chuyển hóa thành tri thức, mẫu, dự báo và quyết định.</p><div class="table-wrap"><table><thead><tr><th>Danh mục</th><th>Từ khóa / Khái niệm</th><th>Công cụ / Phần mềm</th><th>Bài học tham chiếu quốc tế</th></tr></thead><tbody>
+        <tr><td><strong>GeoAI & Học máy</strong></td><td>Object Detection, Pixel Classification, CNN, U-Net</td><td><code>ArcGIS GeoAI Toolbox</code>, <code>opengeos/geoai</code>, <code>TensorFlow</code></td><td class="ref">GeoAI ngày càng đi cùng tiêu chuẩn dữ liệu huấn luyện và quy trình kiểm soát chất lượng.</td></tr>
+        <tr><td><strong>Phân tích chuỗi thời gian</strong></td><td>Spatio-Temporal Cube, Forecasting</td><td><code>ArcGIS Time Series AI</code>, <code>ST-CNN</code></td><td class="ref">Thông tin không-thời gian mở đường cho hệ thống nhận thức, dự báo và dịch vụ thông minh.</td></tr>
+        <tr><td><strong>NLP & LLM cho GIS</strong></td><td>Text Analysis, Embeddings, LLM</td><td><code>ArcGIS Text Analysis</code>, <code>DeepSeek</code></td><td class="ref">AI hỗ trợ phân tích không gian cần cơ chế giám sát của con người để tăng độ tin cậy.</td></tr>
+        <tr><td><strong>Phân tích không gian cổ điển</strong></td><td>Overlay, Buffer, Network, Interpolation, Kriging</td><td><code>QGIS (GRASS/SAGA)</code>, <code>SuperMap iDesktopX</code></td><td class="ref">Đây vẫn là lớp phương pháp cốt lõi của hầu hết bài toán GIS thực tế.</td></tr>
+        <tr><td><strong>Thống kê không gian</strong></td><td>Hot Spot, GWR, Moran's I</td><td><code>GeoDa</code>, <code>SuperMap iDesktopX</code></td><td class="ref">Chỉ số và KPI phải đi cùng quản trị phù hợp, không chỉ tối đa hóa hiệu năng kỹ thuật.</td></tr>
+        <tr><td><strong>Big Data không gian</strong></td><td>GeoSpark, Sedona, Hadoop</td><td><code>Apache Spark</code>, <code>GeoMesa</code></td><td class="ref">Vai trò GIS đang chuyển từ sản xuất bản đồ sang cấu hình và khai thác tài nguyên dữ liệu không-thời gian.</td></tr>
+      </tbody></table></div></div></article>
+
+      <article class="layer l5" id="t5"><div class="layer-head"><div class="num">5</div><h3>MỤC TIÊU / ỨNG DỤNG</h3><span class="fn">HIỂN THỊ</span></div><div class="layer-body"><p class="layer-desc">GEOINT, Location Intelligence, Digital Twins, VR/AR, Xe tự hành, Robot. Đây là “giao diện quyết định” – nơi tri thức không gian được trình bày để con người và hệ thống tự động hành động.</p><div class="table-wrap"><table><thead><tr><th>Danh mục</th><th>Từ khóa / Khái niệm</th><th>Công cụ / Phần mềm</th><th>Bài học tham chiếu quốc tế</th></tr></thead><tbody>
+        <tr><td><strong>Bản đồ & Trực quan hóa 2D/3D</strong></td><td>Thematic Map, 3D Visualization</td><td><code>QGIS</code>, <code>ArcGIS Pro</code>, <code>SuperMap iDesktopX</code></td><td class="ref">Xu hướng là tập dữ liệu cơ sở 2D/3D thống nhất, phục vụ nhiều ngành trên cùng hạ tầng.</td></tr>
+        <tr><td><strong>Dashboard & Giám sát</strong></td><td>Real-time Monitoring, KPI</td><td><code>ArcGIS Dashboards</code>, <code>SuperMap MapDashboard</code></td><td class="ref">Ứng dụng thực tế là cách hiệu quả để chứng minh giá trị của tiêu chuẩn và dữ liệu không gian.</td></tr>
+        <tr><td><strong>Digital Twins</strong></td><td>3D Scene, Simulation, CIM</td><td><code>SuperMap iEarth</code>, <code>MINDIS XR</code></td><td class="ref">Bản sao số và không gian dữ liệu là đích hội tụ tự nhiên của SDI tiên tiến.</td></tr>
+        <tr><td><strong>VR/AR</strong></td><td>HoloLens, Immersive Experience</td><td><code>HoloLens</code>, <code>Unity</code>, <code>Unreal Engine</code></td><td class="ref">Không gian địa lý ngày càng được tiêu thụ qua giao diện nhập vai và spatial computing.</td></tr>
+        <tr><td><strong>GEOINT</strong></td><td>Intelligence Analysis, Change Detection</td><td><code>ArcGIS Excalibur</code>, <code>ENVI</code>, <code>ERDAS Imagine</code></td><td class="ref">Cảm biến và AI làm tăng tốc GEOINT, nhưng vẫn cần con người kiểm soát và giải thích kết quả.</td></tr>
+        <tr><td><strong>Location Intelligence</strong></td><td>Foot Traffic, Site Selection</td><td><code>CARTO</code>, <code>Placer.ai</code>, <code>SafeGraph</code></td><td class="ref">Dữ liệu mở và hệ sinh thái doanh nghiệp thúc đẩy các ứng dụng chọn vị trí, thị trường và vận hành.</td></tr>
+        <tr><td><strong>Xe tự hành & Robot</strong></td><td>HD Map, SLAM, Path Planning</td><td><code>ROS</code>, <code>Apollo</code>, <code>Autoware</code></td><td class="ref">Dữ liệu không-thời gian, định vị chính xác và bản đồ máy đọc được trở thành một phần của hệ tự hành.</td></tr>
+      </tbody></table></div></div></article>
+
+      <section class="matrix" id="matrix"><div class="section-head"><div class="micro">Relationship</div><h2>Ma trận giao thoa: 5 chức năng × 5 tầng</h2><p>Mỗi chức năng GIS có một tầng chủ đạo, nhưng vẫn hiện diện ở các tầng khác với mức độ khác nhau.</p></div><div class="table-wrap"><table><thead><tr><th>Chức năng ↓ / Tầng →</th><th>T1: Nền tảng</th><th>T2: Thu thập</th><th>T3: Platform</th><th>T4: Trí tuệ</th><th>T5: Ứng dụng</th></tr></thead><tbody>
+        <tr><td><strong>THU THẬP</strong></td><td class="weak">○</td><td class="core">●●●</td><td class="weak">○</td><td class="weak">○</td><td class="weak">○</td></tr>
+        <tr><td><strong>QUẢN LÝ</strong></td><td class="weak">○</td><td class="weak">○</td><td class="core">●●●</td><td class="weak">○</td><td class="weak">○</td></tr>
+        <tr><td><strong>THAO TÁC</strong></td><td class="core">●●●</td><td class="weak">○</td><td class="strong">●●</td><td class="strong">●</td><td class="weak">○</td></tr>
+        <tr><td><strong>PHÂN TÍCH</strong></td><td class="weak">○</td><td class="weak">○</td><td class="strong">●</td><td class="core">●●●</td><td class="strong">●</td></tr>
+        <tr><td><strong>HIỂN THỊ</strong></td><td class="strong">●●</td><td class="weak">○</td><td class="strong">●</td><td class="strong">●</td><td class="core">●●●</td></tr>
+      </tbody></table></div><p style="font-size:12px;color:#7f8c8d;margin-top:8px">●●● = chủ đạo · ●● = mạnh · ● = có · ○ = yếu/không</p></section>
+
+      <section id="summary" style="padding-top:54px"><div class="section-head"><div class="micro">Summary</div><h2>Tổng kết & công thức</h2><p>Năm chức năng tạo thành một chuỗi liền mạch từ thế giới thực đến quyết định.</p></div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>Thu thập</b><p>Tầng 2 – GPS, viễn thám, drone, IoT, vệ tinh. Đưa thế giới thực vào hệ thống số.</p></div>
+          <div class="summary-card"><b>Quản lý</b><p>Tầng 3 – GIS, Cloud, Edge, BIM, Blockchain. Tổ chức, lưu trữ và bảo toàn dữ liệu.</p></div>
+          <div class="summary-card"><b>Thao tác</b><p>Tầng 1 – Hệ tọa độ, topology, chuyển đổi định dạng. Biến đổi dữ liệu trên nền tảng không gian.</p></div>
+          <div class="summary-card"><b>Phân tích</b><p>Tầng 4 – AI, GeoAI, LLM, Big Data. Biến dữ liệu thành tri thức và dự báo.</p></div>
+          <div class="summary-card"><b>Hiển thị</b><p>Tầng 5 – GEOINT, LI, Digital Twins, VR/AR. Biến tri thức thành quyết định.</p></div>
+        </div>
+        <div class="formula"><strong>TẦNG 1:</strong> Địa lý + Map + Hệ tọa độ → THAO TÁC<br><strong>TẦNG 2:</strong> GPS + Viễn thám + Vệ tinh + Drone + IoT + 6G → THU THẬP<br><strong>TẦNG 3:</strong> GIS + Cloud + Edge + BIM + Blockchain → QUẢN LÝ<br><strong>TẦNG 4:</strong> AI + GeoAI + LLM + Spatial Computing + Big Data → PHÂN TÍCH<br><strong>TẦNG 5:</strong> GEOINT + LI + Digital Twins + VR/AR + Xe tự hành + Robot → HIỂN THỊ</div>
+        <div class="section-head" style="margin-top:46px"><div class="micro">International lessons</div><h2>Bài học xuyên suốt từ quốc tế</h2></div>
+        <div class="lessons">
+          <div class="lesson"><h4>Mỹ</h4><p>Tiêu chuẩn dữ liệu và quan hệ đối tác là then chốt; dữ liệu mở và hợp tác công – tư ngày càng quan trọng; AI hỗ trợ GEOINT cần giám sát con người.</p></div>
+          <div class="lesson"><h4>Trung Quốc</h4><p>Tích hợp BeiDou thành hạ tầng không-thời gian quốc gia; thúc đẩy GeoAI và “AI + thông tin không-thời gian”; coi dữ liệu không gian là tài sản chiến lược.</p></div>
+          <div class="lesson"><h4>Nga</h4><p>Củng cố mạng lưới trắc địa quốc gia, chủ quyền dữ liệu không gian và năng lực GIS nội địa.</p></div>
+          <div class="lesson"><h4>Châu Âu</h4><p>INSPIRE thúc đẩy chia sẻ dữ liệu xuyên biên giới; nguyên tắc FAIR và tích hợp GIS – BIM – Digital Twins là hướng phát triển quan trọng.</p></div>
+        </div>
+      </section>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap foot"><div class="credit"><b>Vietflex GIS Tools</b> · Long Ngo thiết kế</div><div class="tiny">Kiến thức nền GIS · 5 tầng · 5 chức năng</div></div></footer>
+  <button class="top" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Lên đầu trang">↑</button>
+</body>
+</html>
