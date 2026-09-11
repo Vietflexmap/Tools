@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Danh mục công cụ GIS bằng tiếng Việt: GIS desktop, viễn thám, WebGIS, cơ sở dữ liệu không gian, 3D, GeoAI, Python và xử lý dữ liệu." />
+  <title>Vietflex GIS Tools · Danh mục công cụ GIS tiếng Việt</title>
+  <style>
+    :root{
+      --bg:#07111f;--bg2:#0b1728;--panel:#0e1d31;--panel2:#11243c;
+      --text:#edf5ff;--muted:#9fb1c7;--line:rgba(255,255,255,.10);
+      --brand:#43d6b3;--brand2:#5da9ff;--warn:#ffd166;--shadow:0 18px 55px rgba(0,0,0,.28);
+      --radius:18px;--max:1240px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:
+      radial-gradient(900px 500px at 85% -10%,rgba(93,169,255,.15),transparent 60%),
+      radial-gradient(800px 480px at 10% 8%,rgba(67,214,179,.12),transparent 60%),var(--bg);
+      color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(7,17,31,.78);backdrop-filter:blur(16px)}
+    .nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}.brandmark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 10px 28px rgba(67,214,179,.18);color:#04121d;font-weight:950}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.navlinks{display:flex;gap:8px}.navlinks a{padding:9px 12px;border-radius:10px;color:var(--muted);font-size:14px}.navlinks a:hover{background:rgba(255,255,255,.06);color:#fff}
+    .hero{padding:68px 0 38px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(67,214,179,.22);border-radius:999px;background:rgba(67,214,179,.08);color:#a7f1df;font-size:13px;font-weight:700}.hero h1{max-width:900px;margin:18px 0 14px;font-size:clamp(38px,6.3vw,74px);line-height:.98;letter-spacing:-.055em}.hero h1 span{background:linear-gradient(100deg,var(--brand),#b1d8ff 62%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:800px;margin:0;color:#bac8d8;font-size:clamp(17px,2vw,20px)}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:0 15px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;font-weight:750;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),#76b8ff);color:#061421}.btn:hover{transform:translateY(-1px)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}.stat{padding:18px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));box-shadow:var(--shadow)}.stat b{display:block;font-size:26px;letter-spacing:-.04em}.stat span{color:var(--muted);font-size:13px}
+    .section{padding:28px 0 70px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:16px}.section-head h2{font-size:28px;margin:0;letter-spacing:-.035em}.section-head p{margin:5px 0 0;color:var(--muted)}
+    .controls{position:sticky;top:66px;z-index:20;padding:12px 0;background:linear-gradient(180deg,var(--bg) 65%,rgba(7,17,31,.85) 80%,transparent)}.searchrow{display:grid;grid-template-columns:1fr 220px;gap:10px}.searchbox{display:flex;align-items:center;gap:10px;min-height:50px;padding:0 15px;border:1px solid var(--line);border-radius:14px;background:rgba(14,29,49,.92);box-shadow:var(--shadow)}.searchbox input{width:100%;border:0;outline:0;background:transparent;color:#fff}.searchbox input::placeholder{color:#71859e}.select{border:1px solid var(--line);border-radius:14px;background:#0e1d31;color:#dfeaf7;padding:0 12px;outline:0}.chips{display:flex;gap:8px;overflow:auto;padding:10px 0 3px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.035);color:#aebdd0;border-radius:999px;padding:8px 12px;cursor:pointer}.chip.active,.chip:hover{background:rgba(67,214,179,.12);border-color:rgba(67,214,179,.36);color:#dffff7}
+    .resultbar{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:13px;padding:12px 2px}.resultbar strong{color:#fff}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{position:relative;display:flex;flex-direction:column;min-height:238px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(17,36,60,.92),rgba(10,24,41,.92));box-shadow:0 16px 40px rgba(0,0,0,.16);transition:.2s ease}.card:hover{transform:translateY(-3px);border-color:rgba(93,169,255,.28);box-shadow:0 22px 55px rgba(0,0,0,.24)}.card-top{display:flex;justify-content:space-between;gap:12px}.tool-icon{width:45px;height:45px;border-radius:13px;display:grid;place-items:center;background:rgba(93,169,255,.09);border:1px solid rgba(93,169,255,.14);font-size:22px}.badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.badge{height:25px;padding:0 8px;display:inline-flex;align-items:center;border-radius:999px;font-size:11px;font-weight:750;border:1px solid var(--line);color:#c7d5e5}.badge.open{color:#a9f0df;border-color:rgba(67,214,179,.24);background:rgba(67,214,179,.07)}.badge.commercial{color:#ffe19b;border-color:rgba(255,209,102,.24);background:rgba(255,209,102,.07)}.card h3{margin:16px 0 5px;font-size:20px;letter-spacing:-.025em}.category{color:#7ebcff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.desc{color:#aebdd0;margin:10px 0 16px;font-size:14px;flex:1}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px}.tag{font-size:11px;color:#90a3ba;padding:5px 7px;border-radius:7px;background:rgba(255,255,255,.04)}.card-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:13px}.card-foot a{font-weight:800;font-size:13px;color:#b9dbff}.card-foot a:hover{color:#fff}.use{font-size:11px;color:#71859e}
+    .empty{grid-column:1/-1;text-align:center;padding:52px 20px;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}
+    .guide{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.guidebox{border:1px solid var(--line);border-radius:20px;padding:23px;background:rgba(255,255,255,.035)}.guidebox h3{margin:0 0 9px}.guidebox p{margin:0;color:var(--muted)}.stack{display:grid;gap:9px;margin-top:16px}.stack div{padding:11px 12px;border-left:2px solid var(--brand);background:rgba(67,214,179,.04);border-radius:0 10px 10px 0}.stack b{font-size:13px}.stack span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    footer{border-top:1px solid var(--line);padding:26px 0 38px;color:#8194aa}.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}.credit{color:#c7d6e7}.credit b{color:#fff}.tiny{font-size:12px}
+    .top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(14,29,49,.9);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px)}
+    @media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.guide{grid-template-columns:1fr}}
+    @media(max-width:680px){.wrap{width:min(var(--max),calc(100% - 20px))}.nav{height:60px}.navlinks{display:none}.hero{padding-top:44px}.hero h1{font-size:43px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:14px}.searchrow{grid-template-columns:1fr}.select{height:46px}.controls{top:60px}.grid{grid-template-columns:1fr}.section{padding-bottom:54px}.section-head{display:block}.foot{align-items:flex-start;flex-direction:column}.card{min-height:0}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Vietflex GIS Tools">
+        <span class="brandmark">V</span>
+        <span>Vietflex GIS Tools<small>Danh mục công cụ địa không gian</small></span>
+      </a>
+      <nav class="navlinks" aria-label="Điều hướng chính">
+        <a href="#tools">Công cụ</a><a href="#guide">Gợi ý lựa chọn</a><a href="https://github.com/Vietflexmap/Tools" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">◉ VIETNAMESE GIS DIRECTORY · 2026</span>
+        <h1>Một nơi để tìm <span>công cụ GIS phù hợp.</span></h1>
+        <p class="lead">Danh mục tiếng Việt dành cho người làm GIS, viễn thám, WebGIS, bản đồ 3D, cơ sở dữ liệu không gian, GeoAI và lập trình địa không gian. Tìm nhanh theo nhu cầu thay vì nhớ hàng trăm tên phần mềm.</p>
+        <div class="hero-actions"><a class="btn primary" href="#tools">Khám phá công cụ ↓</a><a class="btn" href="https://github.com/Vietflexmap/Tools" target="_blank" rel="noreferrer">Xem kho nguồn GitHub ↗</a></div>
+        <div class="stats">
+          <div class="stat"><b id="toolCount">0</b><span>Công cụ tiêu biểu</span></div>
+          <div class="stat"><b id="catCount">0</b><span>Nhóm chuyên môn</span></div>
+          <div class="stat"><b id="openCount">0</b><span>Mã nguồn mở / miễn phí</span></div>
+          <div class="stat"><b>VI</b><span>Mô tả ngắn gọn bằng tiếng Việt</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="wrap">
+        <div class="section-head"><div><h2>Danh sách công cụ GIS</h2><p>Lọc theo nhóm, hình thức sử dụng hoặc từ khóa kỹ thuật.</p></div></div>
+        <div class="controls">
+          <div class="searchrow">
+            <label class="searchbox" aria-label="Tìm kiếm"><span>⌕</span><input id="search" type="search" placeholder="Tìm QGIS, raster, PostGIS, Cesium, GeoAI…" autocomplete="off" /></label>
+            <select id="license" class="select" aria-label="Lọc hình thức sử dụng"><option value="all">Tất cả hình thức</option><option value="open">Mã nguồn mở / miễn phí</option><option value="commercial">Thương mại</option></select>
+          </div>
+          <div class="chips" id="chips" aria-label="Bộ lọc nhóm công cụ"></div>
+        </div>
+        <div class="resultbar"><span>Đang hiển thị <strong id="resultCount">0</strong> công cụ</span><span>Nhấn “Mở trang chính thức” để xem tài liệu mới nhất.</span></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="guide">
+      <div class="wrap">
+        <div class="section-head"><div><h2>Chọn nhanh theo bài toán</h2><p>Một số “stack” phổ biến để bắt đầu mà không cần cài quá nhiều công cụ.</p></div></div>
+        <div class="guide">
+          <div class="guidebox"><h3>Stack GIS mã nguồn mở đa dụng</h3><p>Phù hợp cho học tập, dự án cơ quan, nghiên cứu và xây nền tảng GIS riêng.</p><div class="stack"><div><b>QGIS + GDAL + PROJ</b><span>Biên tập, phân tích, chuyển đổi định dạng và hệ tọa độ.</span></div><div><b>PostGIS + GeoServer</b><span>Lưu trữ, truy vấn và xuất bản dịch vụ dữ liệu không gian.</span></div><div><b>MapLibre GL JS + PMTiles</b><span>Xây WebGIS vector hiện đại, tối ưu cho triển khai web.</span></div></div></div>
+          <div class="guidebox"><h3>Stack GeoAI / dữ liệu lớn</h3><p>Dành cho ảnh vệ tinh, raster, point cloud, học sâu và pipeline Python.</p><div class="stack"><div><b>GeoPandas + Rasterio + Xarray</b><span>Phân tích vector/raster và dữ liệu đa chiều bằng Python.</span></div><div><b>TorchGeo + PyTorch</b><span>Huấn luyện mô hình học sâu cho dữ liệu địa không gian.</span></div><div><b>PDAL + DuckDB Spatial</b><span>Xử lý point cloud và truy vấn không gian gọn, nhanh.</span></div></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap foot"><div class="credit"><b>Long Ngo thiết kế</b> · Vietflexmap</div><div class="tiny">Danh mục được biên tập từ hệ sinh thái Awesome GIS và các công cụ GIS phổ biến. Tên sản phẩm thuộc chủ sở hữu tương ứng.</div></div></footer>
+  <button class="top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Lên đầu trang">↑</button>
+
+  <script>
+    const tools = [
+      {n:'QGIS',c:'GIS Desktop',i:'🗺️',l:'open',u:'https://qgis.org/',d:'GIS desktop mã nguồn mở mạnh, hỗ trợ biên tập dữ liệu, phân tích không gian, bản đồ, plugin, raster và kết nối cơ sở dữ liệu.',t:['vector','raster','plugin','desktop'],use:'Tổng hợp GIS'},
+      {n:'ArcGIS Pro',c:'GIS Desktop',i:'🌐',l:'commercial',u:'https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview',d:'Nền tảng GIS desktop chuyên nghiệp của Esri cho bản đồ 2D/3D, geoprocessing, dữ liệu doanh nghiệp và hệ sinh thái ArcGIS.',t:['enterprise','2D','3D','geoprocessing'],use:'Doanh nghiệp'},
+      {n:'GRASS GIS',c:'GIS Desktop',i:'🌿',l:'open',u:'https://grass.osgeo.org/',d:'Bộ GIS mã nguồn mở lâu đời, mạnh về mô hình hóa không gian, địa hình, raster, thủy văn và xử lý dữ liệu khoa học.',t:['terrain','hydrology','raster','modeling'],use:'Phân tích sâu'},
+      {n:'SAGA GIS',c:'GIS Desktop',i:'⛰️',l:'open',u:'https://saga-gis.sourceforge.io/',d:'Phần mềm geoscience với nhiều thuật toán phân tích địa hình, DEM, thủy văn, địa mạo và raster.',t:['DEM','terrain','hydrology','geoscience'],use:'DEM / địa hình'},
+      {n:'GeoDa',c:'GIS Desktop',i:'📊',l:'open',u:'https://geodacenter.github.io/',d:'Công cụ trực quan cho phân tích dữ liệu không gian, thống kê không gian, tương quan và phát hiện cụm.',t:['statistics','Moran','cluster','spatial analysis'],use:'Thống kê không gian'},
+      {n:'Global Mapper',c:'GIS Desktop',i:'🧭',l:'commercial',u:'https://www.bluemarblegeo.com/global-mapper/',d:'GIS desktop đa định dạng, nổi bật ở dữ liệu địa hình, LiDAR, raster, chuyển đổi dữ liệu và thao tác nhanh.',t:['LiDAR','terrain','conversion','desktop'],use:'Dữ liệu hỗn hợp'},
+
+      {n:'ESA SNAP',c:'Viễn thám',i:'🛰️',l:'open',u:'https://step.esa.int/main/toolboxes/snap/',d:'Bộ công cụ của ESA cho xử lý dữ liệu Sentinel, SAR, quang học, hiệu chỉnh, phân loại và chuỗi xử lý viễn thám.',t:['Sentinel','SAR','optical','ESA'],use:'Sentinel'},
+      {n:'Orfeo ToolBox',c:'Viễn thám',i:'🛰️',l:'open',u:'https://www.orfeo-toolbox.org/',d:'Thư viện và ứng dụng mã nguồn mở hiệu năng cao cho ảnh viễn thám, segmentation, classification và xử lý ảnh lớn.',t:['classification','segmentation','imagery','C++'],use:'Xử lý ảnh'},
+      {n:'ENVI',c:'Viễn thám',i:'🔭',l:'commercial',u:'https://www.nv5geospatialsoftware.com/Products/ENVI',d:'Phần mềm thương mại chuyên xử lý và phân tích ảnh viễn thám, phổ biến trong nghiên cứu và các quy trình ảnh chuyên sâu.',t:['hyperspectral','imagery','classification','remote sensing'],use:'Ảnh chuyên sâu'},
+      {n:'Google Earth Engine',c:'Viễn thám',i:'☁️',l:'open',u:'https://earthengine.google.com/',d:'Nền tảng xử lý dữ liệu Trái Đất trên cloud, phù hợp chuỗi thời gian ảnh vệ tinh, phân tích diện rộng và mô hình hóa.',t:['cloud','satellite','time series','JavaScript'],use:'Cloud RS'},
+      {n:'Panoply',c:'Viễn thám',i:'🌦️',l:'open',u:'https://www.giss.nasa.gov/tools/panoply/',d:'Công cụ NASA để đọc và trực quan dữ liệu NetCDF, HDF, GRIB và các mảng dữ liệu khoa học có tham chiếu địa lý.',t:['NetCDF','HDF','GRIB','climate'],use:'Khí hậu'},
+
+      {n:'CesiumJS',c:'3D & Digital Twin',i:'🌍',l:'open',u:'https://cesium.com/platform/cesiumjs/',d:'Thư viện JavaScript mã nguồn mở cho globe 3D, terrain, 3D Tiles và các ứng dụng Digital Twin địa không gian trên web.',t:['3D Tiles','terrain','WebGL','globe'],use:'Web 3D'},
+      {n:'ArcGIS Earth',c:'3D & Digital Twin',i:'🌏',l:'open',u:'https://www.esri.com/en-us/arcgis/products/arcgis-earth/overview',d:'Ứng dụng xem dữ liệu 2D/3D, KML và dịch vụ ArcGIS trong môi trường địa cầu, phù hợp trình bày và khai thác nhanh.',t:['KML','3D','globe','Esri'],use:'Trình bày 3D'},
+      {n:'CityEngine',c:'3D & Digital Twin',i:'🏙️',l:'commercial',u:'https://www.esri.com/en-us/arcgis/products/arcgis-cityengine/overview',d:'Phần mềm mô hình hóa đô thị 3D theo quy tắc, hỗ trợ thiết kế kịch bản thành phố, quy hoạch và trực quan hóa.',t:['urban','procedural','3D','planning'],use:'Đô thị 3D'},
+      {n:'Google Earth Pro',c:'3D & Digital Twin',i:'🌎',l:'open',u:'https://www.google.com/earth/about/versions/',d:'Ứng dụng khám phá ảnh vệ tinh, địa hình và dữ liệu KML/KMZ; hữu ích cho kiểm tra bối cảnh và trình bày nhanh.',t:['satellite','KML','terrain','globe'],use:'Khảo sát nhanh'},
+      {n:'Blender',c:'3D & Digital Twin',i:'🧊',l:'open',u:'https://www.blender.org/',d:'Bộ công cụ 3D mã nguồn mở có thể kết hợp dữ liệu GIS để dựng mesh, mô phỏng, render và Digital Twin.',t:['mesh','render','simulation','3D'],use:'3D nâng cao'},
+
+      {n:'GeoServer',c:'WebGIS Server',i:'🗄️',l:'open',u:'https://geoserver.org/',d:'Máy chủ mã nguồn mở để xuất bản dữ liệu không gian qua WMS, WFS, WMTS và nhiều chuẩn OGC.',t:['WMS','WFS','OGC','PostGIS'],use:'Xuất bản dữ liệu'},
+      {n:'MapServer',c:'WebGIS Server',i:'🧰',l:'open',u:'https://mapserver.org/',d:'Engine mã nguồn mở hiệu năng cao để dựng bản đồ và cung cấp dịch vụ bản đồ web từ nhiều nguồn dữ liệu.',t:['WMS','rendering','server','OGC'],use:'Map engine'},
+      {n:'QGIS Server',c:'WebGIS Server',i:'⚙️',l:'open',u:'https://docs.qgis.org/latest/en/docs/server_manual/',d:'Xuất bản dự án QGIS thành dịch vụ OGC, giúp giữ đồng bộ ký hiệu và cấu hình giữa desktop và server.',t:['QGIS','WMS','WFS','OGC'],use:'QGIS lên web'},
+      {n:'GeoNode',c:'WebGIS Server',i:'🗂️',l:'open',u:'https://geonode.org/',d:'Nền tảng quản lý và chia sẻ dữ liệu địa không gian mã nguồn mở, kết hợp catalog, bản đồ và phân quyền người dùng.',t:['catalog','SDI','sharing','metadata'],use:'Cổng dữ liệu GIS'},
+      {n:'MapTiler Server',c:'WebGIS Server',i:'🧱',l:'commercial',u:'https://www.maptiler.com/server/',d:'Máy chủ self-host để phân phối vector tiles, raster, ảnh vệ tinh và dữ liệu riêng trong hạ tầng nội bộ.',t:['tiles','self-hosted','vector tiles','raster'],use:'Tile server'},
+
+      {n:'MapLibre GL JS',c:'WebGIS Frontend',i:'🧩',l:'open',u:'https://maplibre.org/maplibre-gl-js/docs/',d:'Thư viện WebGL mã nguồn mở để hiển thị vector tiles, style động, lớp dữ liệu lớn và bản đồ tương tác hiện đại.',t:['vector tiles','WebGL','JavaScript','style'],use:'Web map hiện đại'},
+      {n:'Leaflet',c:'WebGIS Frontend',i:'🍃',l:'open',u:'https://leafletjs.com/',d:'Thư viện JavaScript gọn nhẹ, dễ học, phù hợp WebGIS 2D, marker, GeoJSON và hệ plugin rất rộng.',t:['JavaScript','GeoJSON','2D','plugin'],use:'WebGIS nhẹ'},
+      {n:'OpenLayers',c:'WebGIS Frontend',i:'🧭',l:'open',u:'https://openlayers.org/',d:'Thư viện web map giàu tính năng, hỗ trợ nhiều nguồn dữ liệu, projection và chuẩn dịch vụ bản đồ.',t:['projection','WMS','WFS','JavaScript'],use:'WebGIS chuẩn OGC'},
+      {n:'deck.gl',c:'WebGIS Frontend',i:'✨',l:'open',u:'https://deck.gl/',d:'Framework WebGL cho trực quan hóa dữ liệu lớn trên bản đồ, phù hợp điểm, đường, lưới, heatmap và 3D layer.',t:['WebGL','big data','visualization','3D'],use:'Visual analytics'},
+      {n:'ArcGIS Maps SDK for JavaScript',c:'WebGIS Frontend',i:'🧱',l:'commercial',u:'https://developers.arcgis.com/javascript/latest/',d:'SDK của Esri để xây ứng dụng bản đồ 2D/3D tích hợp chặt với ArcGIS Online và ArcGIS Enterprise.',t:['Esri','2D','3D','enterprise'],use:'Hệ sinh thái Esri'},
+      {n:'Turf.js',c:'WebGIS Frontend',i:'📐',l:'open',u:'https://turfjs.org/',d:'Thư viện geoprocessing cho JavaScript với buffer, intersect, centroid, distance và nhiều phép toán vector.',t:['buffer','intersect','GeoJSON','JavaScript'],use:'Geoprocessing web'},
+
+      {n:'PostGIS',c:'CSDL không gian',i:'🐘',l:'open',u:'https://postgis.net/',d:'Mở rộng không gian cho PostgreSQL, hỗ trợ geometry/geography, chỉ mục không gian và truy vấn GIS mạnh bằng SQL.',t:['PostgreSQL','SQL','spatial index','server'],use:'CSDL GIS chuẩn'},
+      {n:'SpatiaLite',c:'CSDL không gian',i:'💾',l:'open',u:'https://www.gaia-gis.it/fossil/libspatialite/index',d:'Mở rộng không gian cho SQLite, phù hợp ứng dụng nhỏ, offline và lưu trữ cục bộ không cần máy chủ.',t:['SQLite','offline','SQL','embedded'],use:'GIS offline'},
+      {n:'GeoPackage',c:'CSDL không gian',i:'📦',l:'open',u:'https://www.geopackage.org/',d:'Chuẩn OGC dạng SQLite để đóng gói vector, raster và tile trong một tệp; thay thế tốt cho nhiều bộ Shapefile.',t:['OGC','SQLite','vector','raster'],use:'Trao đổi dữ liệu'},
+      {n:'DuckDB Spatial',c:'CSDL không gian',i:'🦆',l:'open',u:'https://duckdb.org/docs/stable/core_extensions/spatial/overview.html',d:'Extension không gian cho DuckDB, phù hợp truy vấn phân tích cục bộ nhanh trên file dữ liệu lớn bằng SQL.',t:['DuckDB','SQL','analytics','local'],use:'Phân tích nhanh'},
+      {n:'pgRouting',c:'CSDL không gian',i:'🛣️',l:'open',u:'https://pgrouting.org/',d:'Mở rộng định tuyến cho PostgreSQL/PostGIS với shortest path, traveling salesman và phân tích mạng giao thông.',t:['routing','network','PostGIS','graph'],use:'Định tuyến'},
+
+      {n:'GDAL/OGR',c:'Xử lý dữ liệu',i:'🔁',l:'open',u:'https://gdal.org/',d:'Hạ tầng lõi của GIS mã nguồn mở để đọc/ghi, chuyển đổi, xử lý raster và vector trên rất nhiều định dạng.',t:['raster','vector','CLI','conversion'],use:'Chuyển đổi dữ liệu'},
+      {n:'PROJ',c:'Xử lý dữ liệu',i:'📍',l:'open',u:'https://proj.org/',d:'Thư viện nền tảng cho biến đổi hệ tọa độ và phép chiếu bản đồ, được dùng bên trong nhiều phần mềm GIS.',t:['CRS','projection','datum','transform'],use:'Hệ tọa độ'},
+      {n:'PDAL',c:'Xử lý dữ liệu',i:'☁️',l:'open',u:'https://pdal.io/',d:'Thư viện và CLI xử lý point cloud, LAS/LAZ, lọc, phân loại, chuyển đổi và pipeline dữ liệu LiDAR.',t:['LiDAR','LAS','LAZ','point cloud'],use:'Point cloud'},
+      {n:'FME',c:'Xử lý dữ liệu',i:'🔀',l:'commercial',u:'https://fme.safe.com/',d:'Nền tảng ETL dữ liệu mạnh cho tích hợp, chuyển đổi và tự động hóa luồng dữ liệu GIS giữa hàng trăm định dạng/hệ thống.',t:['ETL','automation','conversion','enterprise'],use:'Tích hợp dữ liệu'},
+      {n:'Tippecanoe',c:'Xử lý dữ liệu',i:'🧱',l:'open',u:'https://github.com/felt/tippecanoe',d:'Công cụ dòng lệnh để tạo vector tiles từ GeoJSON, tối ưu dữ liệu lớn cho bản đồ web nhiều mức zoom.',t:['vector tiles','GeoJSON','CLI','tiles'],use:'Tạo vector tiles'},
+      {n:'PMTiles',c:'Xử lý dữ liệu',i:'🗜️',l:'open',u:'https://protomaps.com/docs/pmtiles',d:'Định dạng archive cho map tiles trong một file, hỗ trợ HTTP range request và triển khai bản đồ tĩnh hiệu quả.',t:['tiles','single file','HTTP','serverless'],use:'Bản đồ serverless'},
+
+      {n:'GeoPandas',c:'Python GIS',i:'🐼',l:'open',u:'https://geopandas.org/',d:'Thư viện Python mở rộng pandas cho dữ liệu vector, spatial join, overlay, CRS và quy trình phân tích địa không gian.',t:['Python','vector','pandas','analysis'],use:'Python vector'},
+      {n:'Shapely',c:'Python GIS',i:'🔷',l:'open',u:'https://shapely.readthedocs.io/',d:'Thư viện Python cho hình học phẳng: buffer, intersect, union, validity và các thao tác geometry cốt lõi.',t:['Python','geometry','GEOS','vector'],use:'Hình học'},
+      {n:'Rasterio',c:'Python GIS',i:'🟫',l:'open',u:'https://rasterio.readthedocs.io/',d:'Thư viện Python đọc/ghi và xử lý raster địa không gian dựa trên GDAL với API thân thiện cho khoa học dữ liệu.',t:['Python','raster','GDAL','GeoTIFF'],use:'Python raster'},
+      {n:'PyProj',c:'Python GIS',i:'🧭',l:'open',u:'https://pyproj4.github.io/pyproj/stable/',d:'Giao diện Python cho PROJ, dùng để xử lý CRS, biến đổi tọa độ và geodesic chính xác trong pipeline dữ liệu.',t:['Python','CRS','PROJ','transform'],use:'CRS trong Python'},
+      {n:'Xarray',c:'Python GIS',i:'🧮',l:'open',u:'https://xarray.dev/',d:'Thư viện Python cho mảng đa chiều có nhãn, rất hữu ích với NetCDF, khí hậu, dữ liệu raster đa thời gian và cube.',t:['Python','NetCDF','multidimensional','climate'],use:'Data cube'},
+      {n:'rioxarray',c:'Python GIS',i:'🧊',l:'open',u:'https://corteva.github.io/rioxarray/stable/',d:'Mở rộng Xarray với CRS, clip, reproject, GeoTIFF và các thao tác raster địa không gian dựa trên Rasterio.',t:['Python','Xarray','raster','CRS'],use:'Raster đa chiều'},
+
+      {n:'TorchGeo',c:'GeoAI',i:'🧠',l:'open',u:'https://torchgeo.readthedocs.io/',d:'Thư viện PyTorch chuyên cho dữ liệu địa không gian, cung cấp dataset, sampler và pipeline học sâu cho ảnh vệ tinh.',t:['PyTorch','deep learning','satellite','dataset'],use:'Deep learning GIS'},
+      {n:'Raster Vision',c:'GeoAI',i:'🤖',l:'open',u:'https://docs.rastervision.io/',d:'Framework mã nguồn mở xây pipeline machine learning trên ảnh raster cho classification, object detection và segmentation.',t:['ML','segmentation','detection','raster'],use:'AI ảnh vệ tinh'},
+      {n:'Segment Anything',c:'GeoAI',i:'✂️',l:'open',u:'https://github.com/facebookresearch/segment-anything',d:'Mô hình segmentation nền tảng có thể kết hợp pipeline GIS/viễn thám để tách đối tượng từ ảnh với prompt điểm hoặc vùng.',t:['segmentation','foundation model','vision','mask'],use:'Tách đối tượng'},
+      {n:'scikit-learn',c:'GeoAI',i:'📈',l:'open',u:'https://scikit-learn.org/',d:'Bộ machine learning Python phổ biến cho classification, regression, clustering và pipeline đặc trưng áp dụng tốt cho dữ liệu GIS dạng bảng.',t:['ML','classification','clustering','Python'],use:'ML cổ điển'},
+
+      {n:'Kepler.gl',c:'Trực quan hóa',i:'🌌',l:'open',u:'https://kepler.gl/',d:'Ứng dụng WebGL trực quan hóa dữ liệu không gian lớn bằng layer, filter, time playback và cấu hình nhanh.',t:['WebGL','visualization','big data','time'],use:'Khám phá dữ liệu'},
+      {n:'QField',c:'Mobile GIS',i:'📱',l:'open',u:'https://qfield.org/',d:'Ứng dụng thu thập dữ liệu hiện trường gắn chặt với dự án QGIS, hỗ trợ biểu mẫu, GPS, offline và đồng bộ.',t:['field','QGIS','offline','GPS'],use:'Khảo sát hiện trường'},
+      {n:'Mergin Maps',c:'Mobile GIS',i:'📲',l:'open',u:'https://merginmaps.com/',d:'Nền tảng khảo sát hiện trường dựa trên QGIS, hỗ trợ làm việc offline, biểu mẫu và đồng bộ dữ liệu nhóm.',t:['field','QGIS','sync','mobile'],use:'Thu thập dữ liệu'},
+      {n:'Input / MapTiler Mobile workflows',c:'Mobile GIS',i:'🧭',l:'open',u:'https://github.com/MerginMaps/input',d:'Mã nguồn ứng dụng Input trước đây, là nền tảng lịch sử của hệ sinh thái khảo sát hiện trường Mergin Maps.',t:['field','mobile','QGIS','legacy'],use:'Tham khảo mã nguồn'}
+    ];
+
+    const categories=['Tất cả',...new Set(tools.map(x=>x.c))];
+    const grid=document.getElementById('grid'), chips=document.getElementById('chips'), search=document.getElementById('search'), license=document.getElementById('license');
+    let active='Tất cả';
+    const escapeHtml=s=>String(s).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[m]));
+
+    function renderChips(){chips.innerHTML=categories.map(c=>`<button class="chip ${c===active?'active':''}" data-c="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{active=b.dataset.c;renderChips();render();});}
+    function render(){
+      const q=search.value.trim().toLowerCase(); const lf=license.value;
+      const data=tools.filter(x=>(active==='Tất cả'||x.c===active)&&(lf==='all'||x.l===lf)&&(!q||[x.n,x.c,x.d,x.use,...x.t].join(' ').toLowerCase().includes(q)));
+      document.getElementById('resultCount').textContent=data.length;
+      grid.innerHTML=data.length?data.map(x=>`<article class="card"><div class="card-top"><div class="tool-icon">${x.i}</div><div class="badges"><span class="badge ${x.l}">${x.l==='open'?'Mã nguồn mở / miễn phí':'Thương mại'}</span></div></div><h3>${escapeHtml(x.n)}</h3><div class="category">${escapeHtml(x.c)}</div><p class="desc">${escapeHtml(x.d)}</p><div class="tags">${x.t.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div><div class="card-foot"><a href="${x.u}" target="_blank" rel="noreferrer">Mở trang chính thức ↗</a><span class="use">${escapeHtml(x.use)}</span></div></article>`).join(''):`<div class="empty"><b>Không tìm thấy công cụ phù hợp.</b><br>Thử từ khóa khác hoặc chuyển bộ lọc về “Tất cả”.</div>`;
+    }
+    document.getElementById('toolCount').textContent=tools.length+'+';document.getElementById('catCount').textContent=new Set(tools.map(x=>x.c)).size;document.getElementById('openCount').textContent=tools.filter(x=>x.l==='open').length+'+';
+    search.addEventListener('input',render);license.addEventListener('change',render);renderChips();render();
+  </script>
+</body>
+</html>
